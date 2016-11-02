@@ -1,7 +1,7 @@
 # ls aliases
-alias ll='ls -lAh --group-directories-first'
+alias ll='ls -lAhF --group-directories-first --time-style="+%H:%M %d.%m.%Y"'
 alias la='ls -A'
-alias l='ls -CF'
+alias l='ls -CFx'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
