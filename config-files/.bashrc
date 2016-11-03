@@ -111,3 +111,22 @@ fi
 export EDITOR=vim
 
 ~/.linux-home-config/update.sh
+
+greeting=true
+if [ -n "$greeting" ]
+then
+	fortune startrek >/dev/null 2>&1 && fortune=true
+	command -v cowsay >/dev/null 2>&1 && cowsay=true
+
+	if [ "$fortune" = "true" ] && [ "$cowsay" = "true" ]
+	then
+		fortune startrek | cowsay -f tux
+	elif [ "$cowsay" = "true" ]
+	then
+		echo "Hi $USER" | cowsay -f tux
+	elif [ "$fortune" = "true" ]
+	then
+		fortune startrek
+	fi
+	unset fortune cowsay
+fi
