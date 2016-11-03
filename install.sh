@@ -62,7 +62,6 @@ rm -r ${home_path}/old-config-files/.* 2>/dev/null
 mv -f -t ${home_path}/old-config-files .vimrc .vim .bashrc .bash_aliases
 
 curlOrWget
-downloadAll #and install
 
 echo "Which mirror do you want to use?"
 select yn in "Custom" "Github" "Cancel"; do
@@ -73,6 +72,10 @@ select yn in "Custom" "Github" "Cancel"; do
     esac
 done
 
+downloadAll #and install
+
+echo
+
 echo "Do you want to set up auto sync?"
 select yn in "Yes" "No" "Cancel"; do
     case $yn in
@@ -81,6 +84,8 @@ select yn in "Yes" "No" "Cancel"; do
 	Cancel ) exit;;
     esac
 done
+
+echo
 
 echo "Do you want openHAB support in VIM?"
 select yn in "Yes" "No" "Cancel"; do
@@ -91,13 +96,17 @@ select yn in "Yes" "No" "Cancel"; do
     esac
 done
 
+echo
+
 echo "Do you like Tux?"
 select yn in "Yes" "No" "Cancel"; do
     case $yn in
         Yes ) break;;
-        No ) removeGreeting; break;;
+        No ) removeGreeting; echo ":("; break;;
 	Cancel ) exit;;
     esac
 done
+
+echo
 
 installRecommendation
