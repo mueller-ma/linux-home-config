@@ -18,8 +18,12 @@ function curlOrWget {
 }
 
 function removeAutoSync {
-	#sed '/~\/\.linux-home-config\/update\.sh/d' ~/.bashrc
+	sed '/~\/\.linux-home-config\/update\.sh/d' ~/.bashrc
 }
+
+function removeOpenhab {
+	cd ~
+	rm .vim/{ftdetect,syntax}/openhab.vim
 
 function downloadAll {
 	mkdir -p ${home_path}/download
@@ -29,6 +33,9 @@ function downloadAll {
 	tar -xvzf master.tar.gz
 	cd linux-home-config-master/config-files
 	cp -r .* ~
+}
+
+function installRecommendation {
 }
 
 
@@ -68,3 +75,11 @@ select yn in "Yes" "No" "Cancel"; do
     esac
 done
 
+echo "Do you want openHAB support in VIM?"
+select yn in "Yes" "No" "Cancel"; do
+    case $yn in
+        Yes ) break;;
+        No ) removeOpenhab; break;;
+	Cancel ) exit;;
+    esac
+done
