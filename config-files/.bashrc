@@ -2,6 +2,8 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+# All changes are overriden by ~/.linux-home-config/update.sh
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -108,10 +110,13 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# Editor
 export EDITOR=vim
 
+# Autoupdate of config file (e.g. this file, .bash_aliases, .vimrc)
 ${HOME}/.linux-home-config/update.sh
 
+# If cowsay and fortunes is installed tux will quote Star Trek when starting bash
 greeting=true
 if [ -n "$greeting" ]
 then
