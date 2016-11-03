@@ -41,23 +41,15 @@ function removeGreeting {
 }
 
 function installRecommendation {
-	command -v foo >/dev/null 2>&1 || { echo "I require foo but it's not installed.  Aborting." >&2; exit 1; }
+	for cmd in vim tree
+	do
+		command -v $cmd >/dev/null 2>&1 || echo "$cmd not installed"
+	done
 }
 
 
 #Questions
-function localMirrorQ {
-	echo "Which mirror do you want to use?"
-	select yn in "Custom" "Github" "Cancel"; do
-	    case $yn in
-		Custom ) localMirrorURLQ; break;;
-		Github ) URL="https://github.com/mueller-ma/linux-home-config/archive/master.tar.gz"; break;;
-		Cancel ) exit;;
-	    esac
-	done
-}
-
-function localMirrorURLQ {
+function customMirrorURLQ {
 	echo "Enter the URL (\"/archive/master.tar.gz\" will be added): "
 	read input_var
 	URL=${input_var}/archive/master.tar.gz
@@ -70,8 +62,16 @@ rm -r ${home_path}/old-config-files/.* 2>/dev/null
 mv -f -t ${home_path}/old-config-files .vimrc .vim .bashrc .bash_aliases
 
 curlOrWget
-localMirrorQ
 downloadAll #and install
+
+echo "Which mirror do you want to use?"
+select yn in "Custom" "Github" "Cancel"; do
+    case $yn in
+	Custom ) customMirrorURLQ; break;;
+	Github ) URL="https://github.com/mueller-ma/linux-home-config/archive/master.tar.gz"; break;;
+	Cancel ) exit;;
+    esac
+done
 
 echo "Do you want to set up auto sync?"
 select yn in "Yes" "No" "Cancel"; do
@@ -99,3 +99,5 @@ select yn in "Yes" "No" "Cancel"; do
 	Cancel ) exit;;
     esac
 done
+
+installRecommendation
