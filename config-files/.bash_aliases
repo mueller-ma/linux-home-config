@@ -1,5 +1,12 @@
 # ls aliases
-alias ll='ls -lAhF --group-directories-first --time-style="+%H:%M %d.%m.%Y"'
+# More fancy when using GNU's ls
+ls --version 2>/dev/null | grep -q "GNU"
+if [ $? -eq 0 ]
+then
+	alias ll='ls -lAhF --group-directories-first --time-style="+%H:%M %d.%m.%Y"'
+else
+	alias ll='ls -lAhF'
+fi
 alias la='ls -A'
 alias l='ls -CFx'
 
