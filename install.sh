@@ -2,6 +2,7 @@
 
 home_path=".linux-home-config"
 tempfile="~/${home_path}/temp"
+touch $tempfile
 
 function curlOrWget {
 	if hash curl 2>/dev/null
