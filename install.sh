@@ -36,6 +36,10 @@ function downloadAll {
 	cp -r .* ~
 }
 
+function removeGreeting {
+	sed -i 's/greeting=true/#greeting=true' ~/.bashrc
+}
+
 function installRecommendation {
 	command -v foo >/dev/null 2>&1 || { echo "I require foo but it's not installed.  Aborting." >&2; exit 1; }
 }
@@ -83,6 +87,15 @@ select yn in "Yes" "No" "Cancel"; do
     case $yn in
         Yes ) break;;
         No ) removeOpenhab; break;;
+	Cancel ) exit;;
+    esac
+done
+
+echo "Do you like Tux?"
+select yn in "Yes" "No" "Cancel"; do
+    case $yn in
+        Yes ) break;;
+        No ) removeGreeting; break;;
 	Cancel ) exit;;
     esac
 done
