@@ -110,7 +110,7 @@ fi
 
 export EDITOR=vim
 
-~/.linux-home-config/update.sh
+${HOME}/.linux-home-config/update.sh
 
 greeting=true
 if [ -n "$greeting" ]

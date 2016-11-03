@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 home_path=".linux-home-config"
-tempfile="~/${home_path}/temp"
+tempfile="${HOME}/${home_path}/temp"
 touch $tempfile
 
 function curlOrWget {
@@ -20,12 +20,12 @@ function curlOrWget {
 }
 
 function removeAutoSync {
-	sed -e 's/~\/\.linux-home-config\/update\.sh/#~\/\.linux-home-config\/update\.sh/' ~/.bashrc > $tempfile
-	cp $tempfile ~/.bashrc
+	sed -e 's/${HOME}\/\.linux-home-config\/update\.sh/#${HOME}\/\.linux-home-config\/update\.sh/' ${HOME}/.bashrc > $tempfile
+	cp $tempfile ${HOME}/.bashrc
 }
 
 function removeOpenhab {
-	cd ~
+	cd $HOME
 	rm .vim/{ftdetect,syntax}/openhab.vim
 }
 
@@ -36,12 +36,12 @@ function downloadAll {
 	$DL_CMD
 	tar -xzf master.tar.gz
 	cd linux-home-config-master/config-files
-	cp -r .* ~
+	cp -r .* ${HOME}
 }
 
 function removeGreeting {
-	sed -e 's/greeting=true/#greeting=true/' ~/.bashrc > $tempfile
-	cp $tempfile ~/.bashrc
+	sed -e 's/greeting=true/#greeting=true/' ${HOME}/.bashrc > $tempfile
+	cp $tempfile ${HOME}/.bashrc
 }
 
 function installRecommendation {
@@ -60,7 +60,7 @@ function customMirrorURLQ {
 	unset input_var
 }
 
-cd ~
+cd ${HOME}
 mkdir -p ${home_path}/old-config-files
 rm -r ${home_path}/old-config-files/.* 2>/dev/null
 mv -f -t ${home_path}/old-config-files .vimrc .vim .bashrc .bash_aliases
