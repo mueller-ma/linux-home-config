@@ -53,7 +53,7 @@ function installRecommendation {
 	done
 }
 
-function isInstalled {
+function isInstalledEditor {
 	if command -v $1 >/dev/null 2>&1
 	then
 		echo -e "\n# Editor\nexport EDITOR=$1" >> ${HOME}/.bashrc
@@ -103,18 +103,22 @@ done
 
 echo
 
-echo "What is your favorite editor?"
-select editor in "vi" "vim" "emacs" "nano" "ed" "Cancel"; do
-    case $editor in
-        vi ) isInstalled vi && break;;
-        vim ) isInstalled vim && break;;
-        emacs ) isInstalled emacs && break;;
-        nano ) isInstalled nano && break;;
-        ed ) isInstalled ed && break;;
-	Cancel ) exit;;
-    esac
-done
-unset editor
+isInstalledEditor vim
+if [ $? -ne 1 ]
+then
+	echo "What is your favorite editor?"
+	select editor in "vi" "vim" "emacs" "nano" "ed" "Cancel"; do
+	    case $editor in
+		vi ) isInstalledEditor vi && break;;
+		vim ) isInstalledEditor vim && break;;
+		emacs ) isInstalledEditor emacs && break;;
+		nano ) isInstalledEditor nano && break;;
+		ed ) isInstalledEditor ed && break;;
+		Cancel ) exit;;
+	    esac
+	done
+	unset editor
+fi
 
 echo "Do you want openHAB support in VIM?"
 select yn in "Yes" "No" "Cancel"; do
