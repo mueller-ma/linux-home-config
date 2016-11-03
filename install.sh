@@ -137,7 +137,7 @@ echo
 echo "Do you like Tux?"
 select yn in "Yes" "No" "Cancel"; do
     case $yn in
-        Yes ) break;;
+        Yes ) echo ":)"; break;;
         No ) removeGreeting; echo ":("; break;;
 	Cancel ) exit;;
     esac
