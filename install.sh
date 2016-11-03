@@ -31,7 +31,7 @@ function downloadAll {
 	cd ${home_path}/download
 	DL_CMD="${WGET_OR_CURL_CMD} ${URL}"
 	$DL_CMD
-	tar -xvzf master.tar.gz
+	tar -xzf master.tar.gz
 	cd linux-home-config-master/config-files
 	cp -r .* ~
 }
@@ -43,11 +43,11 @@ function installRecommendation {
 
 #Questions
 function localMirrorQ {
-	echo "Do you have a local mirror?"
-	select yn in "Yes" "No" "Cancel"; do
+	echo "Which mirror do you want to use?"
+	select yn in "Custom" "Github" "Cancel"; do
 	    case $yn in
-		Yes ) localMirrorURLQ; break;;
-		No ) URL="https://github.com/mueller-ma/linux-home-config/archive/master.tar.gz"; break;;
+		Custom ) localMirrorURLQ; break;;
+		Github ) URL="https://github.com/mueller-ma/linux-home-config/archive/master.tar.gz"; break;;
 		Cancel ) exit;;
 	    esac
 	done
@@ -62,7 +62,8 @@ function localMirrorURLQ {
 
 cd ~
 mkdir -p ${home_path}/old-config-files
-mv -t ${home_path}/old-config-files .vimrc .vim .bashrc .bash_aliases
+rm -r ${home_path}/old-config-files/.* 2>/dev/null
+mv -f -t ${home_path}/old-config-files .vimrc .vim .bashrc .bash_aliases
 
 curlOrWget
 localMirrorQ
