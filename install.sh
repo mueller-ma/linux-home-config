@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 
-home_path="~/.linux-home-config"
+home_path=".linux-home-config"
 
 function wgetOrCurl {
 	if hash curl 2>/dev/null
 	then
 		WGET_OR_CURL="curl"
-		WGET_OR_CURL_CMD="curl -s -L"
+		WGET_OR_CURL_CMD="curl -s -L -o master.tar.gz"
 	elif hash wget 2>/dev/null
 	then
 		WGET_OR_CURL="wget"
-		WGET_OR_CURL_CMD="wget --quiet"
+		WGET_OR_CURL_CMD="wget --quieti -O master.tar.gz"
 	else
 		echo "wget or curl needed"
 		exit 1
@@ -18,6 +18,7 @@ function wgetOrCurl {
 }
 
 function setAutoSync {
+	localMirrorQ
 	mkdir -p ${home_path}/download
 	cd ${home_path}/download
 	DL_CMD="${WGET_OR_CURL_CMD} ${URL}"
@@ -44,8 +45,8 @@ function localMirrorURLQ {
 	unset input_var
 }
 
-#cd ~
-#mkdir -p ${home_path}/old-config-files
+cd ~
+mkdir -p ${home_path}/old-config-files
 #mv -t ${home_path}/old-config-files .vimrc .vim .bashrc .bash_aliases
 
 wgetOrCurl
@@ -53,7 +54,7 @@ wgetOrCurl
 echo "Do you want to set up auto sync?"
 select yn in "Yes" "No" "Cancel"; do
     case $yn in
-        Yes ) localMirrorQ; break;;
+        Yes ) setAutoSync; break;;
         No ) break;;
 	Cancel ) exit;;
     esac
