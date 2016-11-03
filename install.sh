@@ -37,6 +37,7 @@ function downloadAll {
 	tar -xzf master.tar.gz
 	cd linux-home-config-master/config-files
 	cp -r {.[!.],}* ${HOME} 2>/dev/null
+	mkdir ${HOME}/.vim/{undo,backup}
 }
 
 function removeGreeting {
