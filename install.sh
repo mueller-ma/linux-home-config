@@ -18,9 +18,10 @@ function wgetOrCurl {
 }
 
 function setAutoSync {
-	mkdir ${home_path}/download
+	mkdir -p ${home_path}/download
 	cd ${home_path}/download
-	
+	DL_CMD="${WGET_OR_CURL_CMD} ${URL}"
+	$DL_CMD
 }
 
 
