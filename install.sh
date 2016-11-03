@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 home_path=".linux-home-config"
+tempfile="~/${home_path}/temp"
 
 function curlOrWget {
 	if hash curl 2>/dev/null
@@ -18,7 +19,8 @@ function curlOrWget {
 }
 
 function removeAutoSync {
-	sed -i '/~\/\.linux-home-config\/update\.sh/d' ~/.bashrc
+	sed -e 's/~\/\.linux-home-config\/update\.sh/#~\/\.linux-home-config\/update\.sh/' ~/.bashrc > $tempfile
+	cp $tempfile ~/.bashrc
 }
 
 function removeOpenhab {
@@ -37,7 +39,8 @@ function downloadAll {
 }
 
 function removeGreeting {
-	sed -i 's/greeting=true/#greeting=true/' ~/.bashrc
+	sed -e 's/greeting=true/#greeting=true/' ~/.bashrc > $tempfile
+	cp $tempfile ~/.bashrc
 }
 
 function installRecommendation {
