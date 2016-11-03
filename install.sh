@@ -103,7 +103,7 @@ done
 
 echo
 
-if $(isInstalledEditor vim)
+if $(isInstalledEditor vim 2>/dev/null)
 then
 	echo "Your editor is vim"
 else
@@ -120,6 +120,8 @@ else
 	done
 	unset editor
 fi
+
+echo
 
 echo "Do you want openHAB support in VIM?"
 select yn in "Yes" "No" "Cancel"; do
