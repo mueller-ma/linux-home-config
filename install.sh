@@ -19,10 +19,16 @@ function wgetOrCurl {
 
 function setAutoSync {
 	localMirrorQ
+}
+
+function downloadAll {
 	mkdir -p ${home_path}/download
 	cd ${home_path}/download
 	DL_CMD="${WGET_OR_CURL_CMD} ${URL}"
 	$DL_CMD
+	tar -xvzf master.tar.gz
+	cd linux-home-config-master/config-files
+	cp -r .* ~
 }
 
 
@@ -47,7 +53,7 @@ function localMirrorURLQ {
 
 cd ~
 mkdir -p ${home_path}/old-config-files
-#mv -t ${home_path}/old-config-files .vimrc .vim .bashrc .bash_aliases
+mv -t ${home_path}/old-config-files .vimrc .vim .bashrc .bash_aliases
 
 wgetOrCurl
 
@@ -63,3 +69,4 @@ done
 
 echo foo
 
+downloadAll
