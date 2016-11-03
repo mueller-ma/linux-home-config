@@ -109,5 +109,3 @@ if ! shopt -oq posix; then
 fi
 
 export EDITOR=vim
-
-#curl -s -L -o ~/.vimrc http://foo.com/vi/.vimrc

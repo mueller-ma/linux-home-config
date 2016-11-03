@@ -2,7 +2,7 @@
 
 home_path=".linux-home-config"
 
-function wgetOrCurl {
+function curlOrWget {
 	if hash curl 2>/dev/null
 	then
 		WGET_OR_CURL="curl"
@@ -18,7 +18,6 @@ function wgetOrCurl {
 }
 
 function setAutoSync {
-	localMirrorQ
 }
 
 function downloadAll {
@@ -55,7 +54,8 @@ cd ~
 mkdir -p ${home_path}/old-config-files
 mv -t ${home_path}/old-config-files .vimrc .vim .bashrc .bash_aliases
 
-wgetOrCurl
+curlOrWget
+localMirrorQ
 
 echo "Do you want to set up auto sync?"
 select yn in "Yes" "No" "Cancel"; do
@@ -65,8 +65,5 @@ select yn in "Yes" "No" "Cancel"; do
 	Cancel ) exit;;
     esac
 done
-
-
-echo foo
 
 downloadAll
