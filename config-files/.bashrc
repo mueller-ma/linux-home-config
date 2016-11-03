@@ -116,7 +116,7 @@ greeting=true
 if [ -n "$greeting" ]
 then
 	fortune startrek >/dev/null 2>&1 && fortune=true
-	command -v cowsay >/dev/null 2>&1 && cowsay=true
+	cowsay -f tux >/dev/null 2>&1 && cowsay=true
 
 	if [ "$fortune" = "true" ] && [ "$cowsay" = "true" ]
 	then

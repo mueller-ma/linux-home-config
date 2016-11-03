@@ -37,7 +37,7 @@ function downloadAll {
 }
 
 function removeGreeting {
-	sed -i 's/greeting=true/#greeting=true' ~/.bashrc
+	sed -i 's/greeting=true/#greeting=true/' ~/.bashrc
 }
 
 function installRecommendation {
