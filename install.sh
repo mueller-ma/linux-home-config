@@ -104,15 +104,17 @@ done
 echo
 
 echo "What is your favorite editor?"
-select editor in "Vi" "VIM" "Nano" "ed" "Cancel"; do
+select editor in "vi" "vim" "emacs" "nano" "ed" "Cancel"; do
     case $editor in
-        Vi ) isInstalled vi && break;;
-        VIM ) isInstalled vim && break;;
-        Nano ) isInstalled nano && break;;
+        vi ) isInstalled vi && break;;
+        vim ) isInstalled vim && break;;
+        emacs ) isInstalled emacs && break;;
+        nano ) isInstalled nano && break;;
         ed ) isInstalled ed && break;;
 	Cancel ) exit;;
     esac
 done
+unset editor
 
 echo "Do you want openHAB support in VIM?"
 select yn in "Yes" "No" "Cancel"; do
