@@ -18,12 +18,13 @@ function curlOrWget {
 }
 
 function removeAutoSync {
-	sed '/~\/\.linux-home-config\/update\.sh/d' ~/.bashrc
+	sed -i '/~\/\.linux-home-config\/update\.sh/d' ~/.bashrc
 }
 
 function removeOpenhab {
 	cd ~
 	rm .vim/{ftdetect,syntax}/openhab.vim
+}
 
 function downloadAll {
 	mkdir -p ${home_path}/download
