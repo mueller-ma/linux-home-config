@@ -103,9 +103,10 @@ done
 
 echo
 
-isInstalledEditor vim
-if [ $? -ne 1 ]
+if $(isInstalledEditor vim)
 then
+	echo "Your editor is vim"
+else
 	echo "What is your favorite editor?"
 	select editor in "vi" "vim" "emacs" "nano" "ed" "Cancel"; do
 	    case $editor in
