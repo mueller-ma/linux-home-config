@@ -38,6 +38,7 @@ function downloadAll {
 	cd linux-home-config-master/config-files
 	cp -r {.[!.],}* ${HOME} 2>/dev/null
 	mkdir ${HOME}/.vim/{undo,backup}
+	chmod o-rwx ${HOME}/.vim/{undo,backup}
 }
 
 function removeGreeting {
