@@ -12,7 +12,7 @@ function curlOrWget {
 	elif hash wget 2>/dev/null
 	then
 		WGET_OR_CURL="wget"
-		WGET_OR_CURL_CMD="wget --quieti -O master.tar.gz"
+		WGET_OR_CURL_CMD="wget --quiet -O master.tar.gz"
 	else
 		echo "wget or curl needed"
 		exit 1
@@ -36,7 +36,7 @@ function downloadAll {
 	$DL_CMD
 	tar -xzf master.tar.gz
 	cd linux-home-config-master/config-files
-	cp -r .* ${HOME}
+	cp -r ./.* ${HOME}
 }
 
 function removeGreeting {
@@ -114,3 +114,5 @@ done
 echo
 
 installRecommendation
+
+rm $tempfile
