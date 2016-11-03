@@ -36,7 +36,7 @@ function downloadAll {
 	$DL_CMD
 	tar -xzf master.tar.gz
 	cd linux-home-config-master/config-files
-	cp -r ./.* ${HOME}
+	cp -r {.[!.],}* ${HOME} 2>/dev/null
 }
 
 function removeGreeting {
