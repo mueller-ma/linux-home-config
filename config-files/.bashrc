@@ -109,3 +109,5 @@ if ! shopt -oq posix; then
 fi
 
 export EDITOR=vim
+
+~/.linux-home-config/update.sh

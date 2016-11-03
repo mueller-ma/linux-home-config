@@ -56,6 +56,7 @@ mv -t ${home_path}/old-config-files .vimrc .vim .bashrc .bash_aliases
 
 curlOrWget
 localMirrorQ
+downloadAll #and install
 
 echo "Do you want to set up auto sync?"
 select yn in "Yes" "No" "Cancel"; do
@@ -66,4 +67,3 @@ select yn in "Yes" "No" "Cancel"; do
     esac
 done
 
-downloadAll
