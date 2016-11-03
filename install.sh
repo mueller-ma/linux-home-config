@@ -36,6 +36,7 @@ function downloadAll {
 }
 
 function installRecommendation {
+	command -v foo >/dev/null 2>&1 || { echo "I require foo but it's not installed.  Aborting." >&2; exit 1; }
 }
 
 
