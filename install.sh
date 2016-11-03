@@ -17,7 +17,8 @@ function curlOrWget {
 	fi
 }
 
-function setAutoSync {
+function removeAutoSync {
+	#sed '/~\/\.linux-home-config\/update\.sh/d' ~/.bashrc
 }
 
 function downloadAll {
@@ -61,8 +62,8 @@ downloadAll #and install
 echo "Do you want to set up auto sync?"
 select yn in "Yes" "No" "Cancel"; do
     case $yn in
-        Yes ) setAutoSync; break;;
-        No ) break;;
+        Yes ) break;;
+        No ) removeAutoSync; break;;
 	Cancel ) exit;;
     esac
 done
