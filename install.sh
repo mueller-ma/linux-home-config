@@ -53,6 +53,16 @@ function installRecommendation {
 	done
 }
 
+function isInstalled {
+	if command -v $1 >/dev/null 2>&1
+	then
+		echo -e "\n# Editor\nexport EDITOR=$1" >> ${HOME}/.bashrc
+		return 0
+	else
+		echo "$1 not installed"
+		return 1
+	fi
+}
 
 #Questions
 function customMirrorURLQ {
@@ -92,6 +102,17 @@ select yn in "Yes" "No" "Cancel"; do
 done
 
 echo
+
+echo "What is your favorite editor?"
+select editor in "Vi" "VIM" "Nano" "ed" "Cancel"; do
+    case $editor in
+        Vi ) isInstalled vi && break;;
+        VIM ) isInstalled vim && break;;
+        Nano ) isInstalled nano && break;;
+        ed ) isInstalled ed && break;;
+	Cancel ) exit;;
+    esac
+done
 
 echo "Do you want openHAB support in VIM?"
 select yn in "Yes" "No" "Cancel"; do

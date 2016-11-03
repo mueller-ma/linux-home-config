@@ -110,9 +110,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Editor
-export EDITOR=vim
-
 # Autoupdate of config file (e.g. this file, .bash_aliases, .vimrc)
 ${HOME}/.linux-home-config/update.sh
 
