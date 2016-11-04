@@ -129,6 +129,9 @@ map n nzz
 "nnoremap <ESC> :noh<CR><CR>
 "nnoremap <silent> <esc> :noh<return><esc>
 "nnoremap <silent> <esc>^[ <esc>^[
+if maparg('<C-L>', 'n') ==# ''
+    nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
+endif
 
 " Smart indent
 set smartindent
