@@ -177,7 +177,7 @@ nnoremap <C-l> <C-w>l
 
 "let g:clipbrdDefaultReg = '+'
 
-"Status line
+" Status line (vim-airline)
 set laststatus=2
 "set statusline=%F%m%r%h%w\ (%{&ff}){%Y}\ [%l,%v][%p%%]
 
