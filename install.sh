@@ -79,7 +79,11 @@ mkdir -p ${home_path}/old-config-files
 rm -r ${home_path}/old-config-files/.* 2>/dev/null
 for file in .vimrc .vim .bashrc .bash_aliases .profile
 do
-	mv -f $file ${home_path}/old-config-files/${file}
+	if [ -f $file ]
+	then
+		mv -f $file ${home_path}/old-config-files/${file}
+		echo "Backup of $file under ${home_path}/old-config-files/${file}"
+	fi
 done
 touch $tempfile
 
