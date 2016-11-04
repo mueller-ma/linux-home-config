@@ -171,8 +171,8 @@ endfunction
 
 "let g:clipbrdDefaultReg = '+'
 
-"Status line gnarliness
-"set laststatus=2
+"Status line
+set laststatus=2
 "set statusline=%F%m%r%h%w\ (%{&ff}){%Y}\ [%l,%v][%p%%]
 
 " Todo List
