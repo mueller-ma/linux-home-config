@@ -167,6 +167,12 @@ function! FixArrowkeys()
     imap <ESC>oD <ESC>hi
 endfunction
 
+" Switch tabs more easy
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
 " New and untested stuff
 
 "let g:clipbrdDefaultReg = '+'
