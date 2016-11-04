@@ -1,6 +1,7 @@
 " Just to be sure
 set nocompatible
 
+execute pathogen#infect()
 filetype plugin indent on
 
 " Put plugins and dictionaries in this dir (also on Windows)
