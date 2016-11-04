@@ -67,10 +67,10 @@ autocmd BufNewFile,BufRead * set formatprg=astyle\ -T4
 autocmd BufNewFile,BufRead *.cpp set formatprg=astyle\ -T4p
 
 " Ignore case of Q and W in command mode
-:command Q q
-:command W w
-:command WQ wq
-:command Wq wq
+command Q q
+command W w
+command WQ wq
+command Wq wq
 
 " Disable Ex Mode
 nnoremap Q <Nop>
