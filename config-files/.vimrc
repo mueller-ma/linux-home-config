@@ -52,6 +52,10 @@ map <silent><F5> :set invnumber<CR>
 map <silent><F7> :tabp<CR>
 map <silent><F8> :tabn<CR>
 
+" Map leader key to ","
+let mapleader = ","
+let g:mapleader = ","
+
 " Better pasting
 "noremap P ]P
 "noremap p ]p
