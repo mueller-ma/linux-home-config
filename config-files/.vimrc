@@ -3,6 +3,7 @@ set nocompatible
 
 execute pathogen#infect()
 filetype plugin indent on
+"Helptags
 
 " Put plugins and dictionaries in this dir (also on Windows)
 let vimDir = '$HOME/.vim'
@@ -40,7 +41,7 @@ autocmd BufNewFile,BufRead *.items         map <silent> <F4> :norm ^2x<CR>
 autocmd BufNewFile,BufRead *.rules         map <silent> <F4> :norm ^2x<CR>
 autocmd BufNewFile,BufRead *.sitemap       map <silent> <F4> :norm ^2x<CR>
 autocmd BufNewFile,BufRead *.js            map <silent> <F4> :norm ^2x<CR>
-" Other
+" Special
 autocmd BufNewFile,BufRead *.xml           map <silent> <F3> vat<esc>a--><esc>'<i<!--<esc>'>$
 autocmd BufNewFile,BufRead *.xml           map <silent> <F4> 0vat<esc>C><esc>'<4x<esc>
 
