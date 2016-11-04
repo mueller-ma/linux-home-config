@@ -1,8 +1,7 @@
 " Just to be sure
 set nocompatible
 
-filetype on
-filetype plugin on
+filetype plugin indent on
 
 " Put plugins and dictionaries in this dir (also on Windows)
 let vimDir = '$HOME/.vim'
