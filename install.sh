@@ -109,7 +109,7 @@ echo
 if $(isInstalledEditor vim) 2>/dev/null
 then
 	echo "Your editor is vim"
-	echo -e "\n# Use Vim instead of vi\nalias vi='vim -p'" >> ${HOME}/.bash_aliases
+	echo -e "\n# Use Vim instead of vi\nalias vi='vim'" >> ${HOME}/.bash_aliases
 else
 	echo "What is your favorite editor?"
 	select editor in "vi" "vim" "emacs" "nano" "ed" "Cancel"; do
@@ -124,6 +124,8 @@ else
 	done
 	unset editor
 fi
+
+echo -e "\n# Use Vim tabs\nalias vim='vim -p'" >> ${HOME}/.bash_aliases
 
 echo
 
