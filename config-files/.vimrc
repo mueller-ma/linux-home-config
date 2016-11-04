@@ -66,7 +66,7 @@ autocmd BufNewFile,BufRead * set formatprg=astyle\ -T4
 " for *.cpp
 autocmd BufNewFile,BufRead *.cpp set formatprg=astyle\ -T4p
 
-" Ingore case of Q and W in command mode
+" Ignore case of Q and W in command mode
 :command Q q
 :command W w
 :command WQ wq
