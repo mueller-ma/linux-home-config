@@ -123,12 +123,7 @@ set incsearch
 map N Nzz
 map n nzz
 
-" Clear highlight from search; commented ones are not working
-"noremap <ESC> :noh<CR>
-"map <ESC> :let @/ = ""<CR>
-"nnoremap <ESC> :noh<CR><CR>
-"nnoremap <silent> <esc> :noh<return><esc>
-"nnoremap <silent> <esc>^[ <esc>^[
+" Clear highlight from search
 if maparg('<C-L>', 'n') ==# ''
     nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 endif
