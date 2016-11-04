@@ -82,6 +82,9 @@ cmap w!! w !sudo tee > /dev/null %
 nnoremap <silent> ö o<ESC>
 nnoremap <silent> Ö O<ESC>
 
+" Open help instead of calling man
+set keywordprg=":help"
+
 " use wildmenu
 set wildmenu
 
