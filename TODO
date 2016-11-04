@@ -1,3 +1,4 @@
-*create update.sh
-*save settings
-*vim plugins as git submodules
+* create update.sh
+* save settings
+* vim plugins as git submodules
+* ask for installing installRecommends
