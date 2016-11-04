@@ -79,7 +79,7 @@ mkdir -p ${home_path}/old-config-files
 rm -r ${home_path}/old-config-files/.* 2>/dev/null
 for file in .vimrc .vim .bashrc .bash_aliases .profile
 do
-	if [ -f $file ]
+	if [ -f $file ] || [ -d $file ]
 	then
 		mv -f $file ${home_path}/old-config-files/${file}
 		echo "Backup of $file under ${home_path}/old-config-files/${file}"
@@ -94,7 +94,7 @@ select yn in "Custom" "Github" "Cancel"; do
     case $yn in
 	Custom ) customMirrorURLQ; break;;
 	Github ) URL="https://github.com/mueller-ma/linux-home-config/archive/master.tar.gz"; break;;
-	Cancel ) exit;;
+	Cancel ) echo "You don't have the config files in your \$HOME dir"; exit;;
     esac
 done
 
