@@ -85,6 +85,10 @@ nnoremap <silent> Ö O<ESC>
 " Open help instead of calling man
 set keywordprg=":help"
 
+" ttimeout
+set ttimeout
+set ttimeoutlen=50
+
 " use wildmenu
 set wildmenu
 
