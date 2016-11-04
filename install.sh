@@ -2,7 +2,6 @@
 
 home_path=".linux-home-config"
 tempfile="${HOME}/${home_path}/temp"
-touch $tempfile
 
 function curlOrWget {
 	if hash curl 2>/dev/null
@@ -39,6 +38,9 @@ function downloadAll {
 	cp -r {.[!.],}* ${HOME} 2>/dev/null
 	mkdir ${HOME}/.vim/{undo,backup}
 	chmod o-rwx ${HOME}/.vim/{undo,backup}
+	cd ..
+	cp install.sh ${HOME}/${home_path}/install.sh
+	rm ../master.tar.gz
 }
 
 function removeGreeting {
@@ -76,6 +78,7 @@ cd ${HOME}
 mkdir -p ${home_path}/old-config-files
 rm -r ${home_path}/old-config-files/.* 2>/dev/null
 mv -f -t ${home_path}/old-config-files .vimrc .vim .bashrc .bash_aliases
+touch $tempfile
 
 curlOrWget
 
