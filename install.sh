@@ -87,6 +87,18 @@ function installRecommendation {
 	done
 }
 
+function isRoot {
+	if [ $UID -eq 0 ]
+	then
+		IS_ROOT=
+	elif [ $(command -v sudo) ]
+	then
+		IS_ROOT=sudo
+	else
+		IS_ROOT=false
+	fi
+}
+
 function isInstalledEditor {
 	if command -v $1 >/dev/null 2>&1
 	then
@@ -120,6 +132,7 @@ done
 touch $tempfile
 
 curlOrWget
+isRoot
 
 echo "Which mirror do you want to use?"
 select yn in "Custom" "Github" "Cancel"; do
