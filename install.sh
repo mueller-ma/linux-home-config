@@ -126,7 +126,7 @@ select yn in "Custom" "Github" "Cancel"; do
     case $yn in
 	Custom ) customMirrorURLQ; break;;
 	Github ) URL="https://github.com/mueller-ma/linux-home-config/archive/master.tar.gz"; break;;
-	Cancel ) echo "You don't have the config files in your \$HOME dir"; exit;;
+	Cancel ) echo "You don't have the config files in your \$HOME directory now!"; exit;;
     esac
 done
 
