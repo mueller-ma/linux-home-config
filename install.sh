@@ -81,6 +81,7 @@ function removeGreeting {
 }
 
 function installRecommendation {
+	pkgManCMD
 	i=0
 	for cmd in vim tree
 	do
