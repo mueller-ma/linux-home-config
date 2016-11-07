@@ -58,6 +58,8 @@ function downloadGitmodules {
 	i=1
 	while [ $i -le $((lines/3)) ]
 	do
+		path=$(cat ../gitmodules | grep "path" | cut -d"=" -f 2 | head -n $i | tail -n1)
+		echo $path
 		echo foo $i
 		let i++
 	done
