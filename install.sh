@@ -41,6 +41,7 @@ function downloadAll {
 	cd linux-home-config-master
 	# download git submodules
 	downloadGitmodules 
+	# cd
 	cd config-files
 	# copy all files to ~
 	cp -r {.[!.],}* ${HOME} 2>/dev/null
@@ -67,9 +68,9 @@ function downloadGitmodules {
 		DL_CMD="${WGET_OR_CURL_CMD} ${URL_MODULE_TAR}"
 		$DL_CMD
 		tar -xzf master.tar.gz
-		cp -r ${NAME_MODULE}-master/* ..
-		rm master.tar.gz
-		cd -
+		cp -r ${NAME_MODULE}-master/{.[!.],}* .
+		rm -r master.tar.gz ${NAME_MODULE}-master
+		cd - > /dev/null
 		let i++
 	done
 }
