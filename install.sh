@@ -81,9 +81,54 @@ function removeGreeting {
 }
 
 function installRecommendation {
+	i=0
 	for cmd in vim tree
 	do
-		command -v $cmd >/dev/null 2>&1 || echo "$cmd not installed"
+		command -v $cmd >/dev/null 2>&1
+		if [ $? -ne 0 ]
+		then
+			if [ $PKG_MAN ]
+			then
+				# update db only once
+				if [ $i -eq 0 ]
+				then
+					$IS_ROOT $PKG_MAN_UPDATE_DB
+				fi
+				$IS_ROOT $PKG_MAN_INSTALL $cmd
+			fi
+
+		fi
+		
+		let i++
+	done
+}
+
+function pkgManCMD {
+	PKG_MAN=""
+	for cmd in apt apt-get yum pacman pkg
+	do
+		command -v $cmd >/dev/null 2>&1
+		if [ $? -eq 0 ]
+		then
+			PKG_MAN=true
+			case "$cmd" in
+				"apt")
+					PKG_MAN_UPDATE_DB="${IS_ROOT} apt update"
+					PKG_MAN_INSTALL="${IS_ROOT} apt install"
+				"apt-get")
+					PKG_MAN_UPDATE_DB="${IS_ROOT} apt-get update"
+					PKG_MAN_INSTALL="${IS_ROOT} apt-get install"
+				"yum")
+					PKG_MAN_UPDATE_DB="${IS_ROOT} yum check-update"
+					PKG_MAN_INSTALL="${IS_ROOT} yum install"
+				"pacman")
+					PKG_MAN_UPDATE_DB="${IS_ROOT} pacman -Syy"
+					PKG_MAN_INSTALL="${IS_ROOT} pacman -S"
+				"pkg")
+					PKG_MAN_UPDATE_DB="${IS_ROOT} pkg update"
+					PKG_MAN_INSTALL="${IS_ROOT} pkg install"
+			esac
+		fi
 	done
 }
 
@@ -132,7 +177,6 @@ done
 touch $tempfile
 
 curlOrWget
-isRoot
 
 echo "Which mirror do you want to use?"
 select yn in "Custom" "Github" "Cancel"; do
@@ -157,6 +201,12 @@ select yn in "Yes" "No" "Cancel"; do
 done
 
 echo
+
+isRoot
+if [[ "$IS_ROOT" != "false" ]]
+then
+	installRecommendation
+fi
 
 if $(isInstalledEditor vim) 2>/dev/null
 then
@@ -206,5 +256,3 @@ echo
 installRecommendation
 
 rm $tempfile
-
-echo $IS_ROOT
