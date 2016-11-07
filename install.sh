@@ -37,10 +37,11 @@ function downloadAll {
 	$DL_CMD
 	# unpack tar ball
 	tar -xzf master.tar.gz
-	# go to config-files
-	cd linux-home-config-master/config-files
+	# go to extracted data
+	cd linux-home-config-master/
 	# download git submodules
 	downloadGitmodules 
+	cd config-files
 	# copy all files to ~
 	cp -r {.[!.],}* ${HOME} 2>/dev/null
 	# create folder for vim and change permission
@@ -58,8 +59,13 @@ function downloadGitmodules {
 	i=1
 	while [ $i -le $((lines/3)) ]
 	do
-		path=$(cat ../gitmodules | grep "path" | cut -d"=" -f 2 | head -n $i | tail -n1)
-		echo $path
+		PATH_MODULE=$(cat ../.gitmodules | grep "path" | cut -d"=" -f 2 | head -n $i | tail -n1)
+		URL_MODULE=$(cat ../.gitmodules | grep "url" | cut -d"=" -f 2 | head -n $i | tail -n1)
+		URL_MODULE_TAR="${URL_MODULE}/archive/master.tar.gz"
+		cd $PATH_MODULE
+		DL_CMD="${WGET_OR_CURL_CMD} ${URL_MODULE_TAR}"
+		$DL_CMD
+		echo $path $url
 		echo foo $i
 		let i++
 	done
