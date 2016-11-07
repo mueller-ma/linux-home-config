@@ -1,5 +1,4 @@
-# linux-home-config
-Config files in linux home dir
+# Configuartion files stored in your home directiory
 
 This repo is currently unstable!
 
