@@ -1,4 +1,4 @@
-# Configuartion files stored in your home directiory
+# Configuration files stored in your home directory
 
 This repo is currently unstable!
 
