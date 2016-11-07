@@ -214,6 +214,8 @@ then
 	installRecommendation
 fi
 
+echo
+
 if $(isInstalledEditor vim) 2>/dev/null
 then
 	echo "Your editor is vim"
@@ -256,9 +258,5 @@ select yn in "Yes" "No" "Cancel"; do
 	Cancel ) exit;;
     esac
 done
-
-echo
-
-installRecommendation
 
 rm $tempfile
