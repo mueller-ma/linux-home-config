@@ -70,6 +70,7 @@ function downloadGitmodules {
 		cp -r ${NAME_MODULE}-master/* ..
 		rm master.tar.gz
 		cd -
+		let i++
 	done
 }
 
