@@ -39,6 +39,8 @@ function downloadAll {
 	tar -xzf master.tar.gz
 	# go to config-files
 	cd linux-home-config-master/config-files
+	# download git submodules
+	downloadGitmodules 
 	# copy all files to ~
 	cp -r {.[!.],}* ${HOME} 2>/dev/null
 	# create folder for vim and change permission
@@ -49,6 +51,15 @@ function downloadAll {
 	cp install.sh ${HOME}/${home_path}/install.sh
 	# remove tar ball
 	rm ../master.tar.gz
+}
+
+function downloadGitmodules {
+	lines=$(cat ../.gitmodules | grep -v "^$" | grep -v "^#" | wc -l)
+	i=0
+	while [ $i -le $((lines/3)) ]
+	do
+		echo foo
+	done
 }
 
 function removeGreeting {
