@@ -115,18 +115,23 @@ function pkgManCMD {
 				"apt")
 					PKG_MAN_UPDATE_DB="${IS_ROOT} apt update"
 					PKG_MAN_INSTALL="${IS_ROOT} apt install"
+					;;
 				"apt-get")
 					PKG_MAN_UPDATE_DB="${IS_ROOT} apt-get update"
 					PKG_MAN_INSTALL="${IS_ROOT} apt-get install"
+					;;
 				"yum")
 					PKG_MAN_UPDATE_DB="${IS_ROOT} yum check-update"
 					PKG_MAN_INSTALL="${IS_ROOT} yum install"
+					;;
 				"pacman")
 					PKG_MAN_UPDATE_DB="${IS_ROOT} pacman -Syy"
 					PKG_MAN_INSTALL="${IS_ROOT} pacman -S"
+					;;
 				"pkg")
 					PKG_MAN_UPDATE_DB="${IS_ROOT} pkg update"
 					PKG_MAN_INSTALL="${IS_ROOT} pkg install"
+					;;
 			esac
 		fi
 	done
