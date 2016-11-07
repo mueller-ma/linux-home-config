@@ -55,10 +55,11 @@ function downloadAll {
 
 function downloadGitmodules {
 	lines=$(cat ../.gitmodules | grep -v "^$" | grep -v "^#" | wc -l)
-	i=0
+	i=1
 	while [ $i -le $((lines/3)) ]
 	do
-		echo foo
+		echo foo $i
+		let i++
 	done
 }
 
