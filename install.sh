@@ -206,3 +206,5 @@ echo
 installRecommendation
 
 rm $tempfile
+
+echo $IS_ROOT
