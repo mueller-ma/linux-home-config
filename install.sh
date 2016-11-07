@@ -38,7 +38,7 @@ function downloadAll {
 	# unpack tar ball
 	tar -xzf master.tar.gz
 	# go to extracted data
-	cd linux-home-config-master/
+	cd linux-home-config-master
 	# download git submodules
 	downloadGitmodules 
 	cd config-files
@@ -55,19 +55,21 @@ function downloadAll {
 }
 
 function downloadGitmodules {
-	lines=$(cat ../.gitmodules | grep -v "^$" | grep -v "^#" | wc -l)
+	lines=$(cat .gitmodules | grep -v "^$" | grep -v "^#" | wc -l)
 	i=1
 	while [ $i -le $((lines/3)) ]
 	do
-		PATH_MODULE=$(cat ../.gitmodules | grep "path" | cut -d"=" -f 2 | head -n $i | tail -n1)
-		URL_MODULE=$(cat ../.gitmodules | grep "url" | cut -d"=" -f 2 | head -n $i | tail -n1)
+		PATH_MODULE=$(cat .gitmodules | grep "path" | cut -d"=" -f 2 | head -n $i | tail -n1)
+		NAME_MODULE="${PATH_MODULE##*/}"
+		URL_MODULE=$(cat .gitmodules | grep "url" | cut -d"=" -f 2 | head -n $i | tail -n1)
 		URL_MODULE_TAR="${URL_MODULE}/archive/master.tar.gz"
 		cd $PATH_MODULE
 		DL_CMD="${WGET_OR_CURL_CMD} ${URL_MODULE_TAR}"
 		$DL_CMD
-		echo $path $url
-		echo foo $i
-		let i++
+		tar -xzf master.tar.gz
+		cp -r ${NAME_MODULE}-master/* ..
+		rm master.tar.gz
+		cd -
 	done
 }
 
