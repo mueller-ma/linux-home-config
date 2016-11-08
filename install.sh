@@ -2,16 +2,22 @@
 
 home_path=".linux-home-config"
 tempfile="${HOME}/${home_path}/temp"
+configfile="${HOME}/${home_path}/config"
+> $configfile
 
 function curlOrWget {
 	if hash curl 2>/dev/null
 	then
 		WGET_OR_CURL="curl"
 		WGET_OR_CURL_CMD="curl -s -L -o master.tar.gz"
+		echo 'WGET_OR_CURL="curl"' >> $configfile
+		echo 'WGET_OR_CURL_CMD="curl -s -L -o master.tar.gz"' >> $configfile
 	elif hash wget 2>/dev/null
 	then
 		WGET_OR_CURL="wget"
 		WGET_OR_CURL_CMD="wget --quiet -O master.tar.gz"
+		echo 'WGET_OR_CURL="wget"' >> $configfile
+		echo 'WGET_OR_CURL_CMD="wget --quiet -O master.tar.gz"' >> $configfile
 	else
 		echo "wget or curl needed"
 		exit 1
@@ -24,6 +30,7 @@ function removeAutoSync {
 }
 
 function removeOpenhab {
+	echo 'removeOpenhab="true"' >> $configfile
 	cd $HOME
 	rm .vim/{ftdetect,syntax}/openhab.vim
 }
@@ -34,6 +41,7 @@ function downloadAll {
 	cd ${home_path}/download
 	# download from URL
 	DL_CMD="${WGET_OR_CURL_CMD} ${URL}"
+	echo 'DL_CMD="${WGET_OR_CURL_CMD} ${URL}"' >> $configfile
 	$DL_CMD
 	# unpack tar ball
 	tar -xzf master.tar.gz
@@ -76,6 +84,7 @@ function downloadGitmodules {
 }
 
 function removeGreeting {
+	echo 'removeGreeting="true"' >> $configfile
 	sed -e 's/greeting=true/#greeting=true/' ${HOME}/.bashrc > $tempfile
 	cp $tempfile ${HOME}/.bashrc
 }
@@ -206,6 +215,8 @@ select yn in "Custom" "Github" "Cancel"; do
 	Cancel ) echo "You don't have the config files in your \$HOME directory now!"; exit;;
     esac
 done
+
+echo "URL=$URL" >> $configfile
 
 downloadAll #and install
 

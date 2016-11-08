@@ -195,6 +195,7 @@ do
 	fi
 done
 touch $tempfile
+URL="https://github.com/mueller-ma/linux-home-config/archive/master.tar.gz"
 
 curlOrWget
 
