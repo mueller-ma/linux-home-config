@@ -59,10 +59,19 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+if [ "$UID" -eq 0 ]
+then
+if [ "$color_prompt" = yes ]; then
+    PS1='\[\033[0;31m\][\u@\h \w\][\033[00m\]\$ '
+else
+    PS1='[\u@\h \w]\$ '
+fi
+else
 if [ "$color_prompt" = yes ]; then
     PS1='[\u@\h \[\033[01;36m\]\w\[\033[00m\]]\$ '
 else
     PS1='[\u@\h \w]\$ '
+fi
 fi
 unset color_prompt force_color_prompt
 
