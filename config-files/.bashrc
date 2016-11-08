@@ -62,7 +62,7 @@ fi
 if [ "$UID" -eq 0 ]
 then
 if [ "$color_prompt" = yes ]; then
-    PS1='\[\033[0;31m\][\u@\h \w\][\033[00m\]\$ '
+    PS1='\[\033[0;31m\][\u@\h \w]\[\033[00m\]\$ '
 else
     PS1='[\u@\h \w]\$ '
 fi
