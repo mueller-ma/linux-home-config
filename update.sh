@@ -40,7 +40,7 @@ source $configfile
 
 URL_NO_HTTP=${URL#http*://}
 URL_NO_HTTP_AND_PATH=${URL_NO_HTTP%%/*}
-ping -c1 $URL_NO_HTTP_AND_PATH 2&>1 >/dev/null || exit 1
+ping -c1 $URL_NO_HTTP_AND_PATH 2>&1 >/dev/null || exit 1
 
 mkdir -p ${home_path}/old-config-files
 rm -r ${home_path}/old-config-files/.* 2>/dev/null
