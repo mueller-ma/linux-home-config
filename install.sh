@@ -3,7 +3,6 @@
 home_path=".linux-home-config"
 tempfile="${HOME}/${home_path}/temp"
 configfile="${HOME}/${home_path}/config"
-> $configfile
 
 function curlOrWget {
 	if hash curl 2>/dev/null
@@ -178,6 +177,7 @@ function isInstalledEditor {
 	if command -v $1 >/dev/null 2>&1
 	then
 		echo -e "\n# Editor\nexport EDITOR=$1" >> ${HOME}/.bashrc
+		echo -e "\n# Editor\nexport EDITOR=$1" >> ${home_path}/persistent/A.bashrc
 		return 0
 	else
 		echo "$1 not installed"
@@ -205,6 +205,8 @@ do
 	fi
 done
 touch $tempfile
+touch $configfile
+> $configfile
 
 curlOrWget
 
@@ -220,6 +222,8 @@ done
 echo "URL=$URL" >> $configfile
 
 downloadAll #and install
+
+mkdir -p ${home_path}/persistent
 
 echo
 
