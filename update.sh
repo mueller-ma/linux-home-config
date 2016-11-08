@@ -42,7 +42,7 @@ for file in .vimrc .vim .bashrc .bash_aliases .profile
 do
 	if [ -f $file ] || [ -d $file ]
 	then
-		mv -f $file ${home_path}/old-config-files/${file}
+		cp -r $file ${home_path}/old-config-files/${file}
 		#echo "Backup of $file under ${home_path}/old-config-files/${file}"
 	fi
 done
