@@ -63,7 +63,7 @@ fi
 
 for file in ${HOME}/${home_path}/persistent/A*
 do
-	name=${file#*}
+	name=${file#A*}
 	cat $file >> ${HOME}/${name}
 done
 
