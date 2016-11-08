@@ -177,7 +177,7 @@ function isInstalledEditor {
 	if command -v $1 >/dev/null 2>&1
 	then
 		echo -e "\n# Editor\nexport EDITOR=$1" >> ${HOME}/.bashrc
-		echo -e "\n# Editor\nexport EDITOR=$1" >> ${home_path}/persistent/A.bashrc
+		echo -e "\n# Editor\nexport EDITOR=$1" >> ${HOME}/${home_path}/persistent/A.bashrc
 		return 0
 	else
 		echo "$1 not installed"
@@ -248,6 +248,7 @@ if $(isInstalledEditor vim) 2>/dev/null
 then
 	echo "Your editor is vim"
 	echo -e "\n# Use Vim instead of vi\nalias vi='vim'" >> ${HOME}/.bash_aliases
+	echo -e "\n# Use Vim instead of vi\nalias vi='vim'" >> ${HOME}/${home_path}/persistent/A.bashrc
 else
 	echo "What is your favorite editor?"
 	select editor in "vi" "vim" "emacs" "nano" "ed" "Cancel"; do
