@@ -5,3 +5,4 @@
 * add .selected_editor
 * add firefox config
 * add note that informs user about config files will be overridden
+* files shouldnt be owned by root
