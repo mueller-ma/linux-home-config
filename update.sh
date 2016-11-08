@@ -61,4 +61,10 @@ then
 	removeGreeting
 fi
 
+for file in ${HOME}/${home_path}/persistent/A*
+do
+	name=${file#*}
+	cat $file >> ${HOME}/${name}
+done
+
 rm $tempfile
