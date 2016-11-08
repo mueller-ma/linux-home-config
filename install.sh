@@ -143,6 +143,7 @@ function pkgManCMD {
 				"yum")
 					PKG_MAN_UPDATE_DB="${IS_ROOT} yum check-update"
 					PKG_MAN_INSTALL="${IS_ROOT} yum install"
+					VIM_PKG_NAME="vim-common"
 					break
 					;;
 				"pacman")
