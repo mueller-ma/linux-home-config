@@ -45,7 +45,7 @@ function downloadAll {
 	$DL_CMD
 	# unpack tar ball
 	tar -xzf master.tar.gz
-	# go to extracted data
+	# go to extracted files
 	cd linux-home-config-master
 	# download git submodules
 	downloadGitmodules 
@@ -59,6 +59,7 @@ function downloadAll {
 	# copy installer in linux-home-config folder
 	cd ..
 	cp install.sh ${HOME}/${home_path}/install.sh
+	cp update.sh ${HOME}/${home_path}/update.sh
 	# remove tar ball
 	rm ../master.tar.gz
 }
