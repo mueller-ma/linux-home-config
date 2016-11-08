@@ -263,8 +263,6 @@ else
 	unset editor
 fi
 
-echo -e "\n# Use Vim tabs\nalias vim='vim -p'" >> ${HOME}/.bash_aliases
-
 echo
 
 echo "Do you want openHAB support in VIM?"
