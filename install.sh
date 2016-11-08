@@ -81,8 +81,16 @@ function removeGreeting {
 }
 
 function installRecommendation {
+	echo "Do you want to install some software?"
+	select yn in "Yes" "No" "Cancel"; do
+	    case $yn in
+		Yes ) break;;
+		No )  return 0;;
+		Cancel ) exit;;
+	    esac
+	done
 	pkgManCMD
-	i=0
+	DB_UPDATED=0
 	for cmd in vim tree
 	do
 		command -v $cmd >/dev/null 2>&1
@@ -91,16 +99,16 @@ function installRecommendation {
 			if [ $PKG_MAN ]
 			then
 				# update db only once
-				if [ $i -eq 0 ]
+				if [ $DB_UPDATED -eq 0 ]
 				then
 					$IS_ROOT $PKG_MAN_UPDATE_DB
+					let DB_UPDATED++
 				fi
 				$IS_ROOT $PKG_MAN_INSTALL $cmd
 			fi
 
 		fi
 		
-		let i++
 	done
 }
 
