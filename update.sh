@@ -9,6 +9,11 @@ function removeOpenhab {
 	rm .vim/{ftdetect,syntax}/openhab.vim
 }
 
+function removeGreeting {
+	sed -e 's/greeting=true/#greeting=true/' ${HOME}/.bashrc > $tempfile
+	cp $tempfile ${HOME}/.bashrc
+}
+
 function downloadAll {
 	# create folder
 	mkdir -p ${home_path}/download
@@ -34,11 +39,6 @@ function downloadAll {
 	rm ../master.tar.gz
 }
 
-function removeGreeting {
-	sed -e 's/greeting=true/#greeting=true/' ${HOME}/.bashrc > $tempfile
-	cp $tempfile ${HOME}/.bashrc
-}
-
 cd ${HOME}
 mkdir -p ${home_path}/old-config-files
 rm -r ${home_path}/old-config-files/.* 2>/dev/null
@@ -47,14 +47,22 @@ do
 	if [ -f $file ] || [ -d $file ]
 	then
 		mv -f $file ${home_path}/old-config-files/${file}
-		echo "Backup of $file under ${home_path}/old-config-files/${file}"
+		#echo "Backup of $file under ${home_path}/old-config-files/${file}"
 	fi
 done
 touch $tempfile
-. config
-
-curlOrWget
+source $configfile
 
 downloadAll #and install
+
+if [ -n $removeOpenhab ]
+then
+	removeOpenhab
+fi
+
+if [ -n $removeGreeting ]
+then
+	removeGreeting
+fi
 
 rm $tempfile
