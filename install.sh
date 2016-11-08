@@ -194,14 +194,14 @@ function customMirrorURLQ {
 }
 
 cd ${HOME}
-mkdir -p ${home_path}/old-config-files
+mkdir -p ${home_path}/{old-config-files,persistent}
 rm -r ${home_path}/old-config-files/.* 2>/dev/null
 for file in .vimrc .vim .bashrc .bash_aliases .profile
 do
 	if [ -f $file ] || [ -d $file ]
 	then
 		mv -f $file ${home_path}/old-config-files/${file}
-		echo "Backup of $file under ${home_path}/old-config-files/${file}"
+		#echo "Backup of $file under ${home_path}/old-config-files/${file}"
 	fi
 done
 touch $tempfile
@@ -222,8 +222,6 @@ done
 echo "URL=$URL" >> $configfile
 
 downloadAll #and install
-
-mkdir -p ${home_path}/persistent
 
 echo
 
