@@ -195,7 +195,7 @@ function customMirrorURLQ {
 
 cd ${HOME}
 mkdir -p ${home_path}/{old-config-files,persistent}
-rm -r ${home_path}/old-config-files/.* 2>/dev/null
+rm -r ${home_path}/{old-config-files,persistent}/.* $configfile 2>/dev/null
 for file in .vimrc .vim .bashrc .bash_aliases .profile
 do
 	if [ -f $file ] || [ -d $file ]
@@ -206,7 +206,6 @@ do
 done
 touch $tempfile
 touch $configfile
-> $configfile
 
 curlOrWget
 
