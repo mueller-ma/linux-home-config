@@ -91,7 +91,7 @@ function installRecommendation {
 	done
 	pkgManCMD
 	DB_UPDATED=0
-	for cmd in vim tree
+	for cmd in $VIM_PKG_NAME tree
 	do
 		command -v $cmd >/dev/null 2>&1
 		if [ $? -ne 0 ]
@@ -114,6 +114,7 @@ function installRecommendation {
 
 function pkgManCMD {
 	PKG_MAN=""
+	VIM_PKG_NAME="vim"
 	for cmd in apt apt-get yum pacman pkg
 	do
 		command -v $cmd >/dev/null 2>&1
@@ -128,18 +129,23 @@ function pkgManCMD {
 				"apt-get")
 					PKG_MAN_UPDATE_DB="${IS_ROOT} apt-get update"
 					PKG_MAN_INSTALL="${IS_ROOT} apt-get install"
+					break
 					;;
 				"yum")
 					PKG_MAN_UPDATE_DB="${IS_ROOT} yum check-update"
 					PKG_MAN_INSTALL="${IS_ROOT} yum install"
+					break
 					;;
 				"pacman")
 					PKG_MAN_UPDATE_DB="${IS_ROOT} pacman -Syy"
 					PKG_MAN_INSTALL="${IS_ROOT} pacman -S"
+					break
 					;;
 				"pkg")
 					PKG_MAN_UPDATE_DB="${IS_ROOT} pkg update"
 					PKG_MAN_INSTALL="${IS_ROOT} pkg install"
+					VIM_PKG_NAME="vim-lite"
+					break
 					;;
 			esac
 		fi
