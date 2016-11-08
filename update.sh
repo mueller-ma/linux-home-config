@@ -67,4 +67,6 @@ do
 	cat $file >> ${HOME}/${name}
 done
 
+chmod -R o-rwx ${HOME}/${home_path}/
+
 rm $tempfile

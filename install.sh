@@ -287,4 +287,6 @@ select yn in "Yes" "No" "Cancel"; do
     esac
 done
 
+chmod -R o-rwx ${HOME}/${home_path}/
+
 rm $tempfile
