@@ -16,7 +16,7 @@ colorscheme desert
 " Dark background
 set background=dark
 " Vim airline theme
-AirlineTheme ubaryd
+let g:airline_theme='ubaryd'
 
 " Execute astyle (formating text)
 map <silent> <F2> gggqG<CR>
