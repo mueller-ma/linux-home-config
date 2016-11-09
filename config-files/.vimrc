@@ -124,9 +124,7 @@ map N Nzz
 map n nzz
 
 " Clear highlight from search
-if maparg('<C-L>', 'n') ==# ''
-    nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
-endif
+nnoremap <silent> <C-L> :noh<CR>
 
 " Smart indent
 set smartindent
@@ -188,7 +186,8 @@ nnoremap <C-l> <C-w>l
 
 " Status line (vim-airline)
 set laststatus=2
-"set statusline=%F%m%r%h%w\ (%{&ff}){%Y}\ [%l,%v][%p%%]
+" Disable default mode indicator
+set noshowmode
 
 " Todo List
 "function! TodoListMode()
