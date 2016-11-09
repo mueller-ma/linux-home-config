@@ -61,7 +61,7 @@ function downloadAll {
 	cp update.sh ${HOME}/${home_path}/update.sh
 	# remove tar ball
 	rm ../master.tar.gz
-	vi -c ':Helptags' -c ':q' 2>&1 > /dev/null
+	#vim -u NONE -c 'Helptags' -c q 2>&1 >/dev/null
 }
 
 function downloadGitmodules {
