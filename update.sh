@@ -74,4 +74,9 @@ done
 
 chmod -R o-rwx ${HOME}/${home_path}/
 
+if [ $UID -eq 0 ] && [ -n $SUDO_USER ] && [[ "$HOME" != "/root" ]]
+then
+	chown -R ${SUDO_USER}: ${HOME}/${home_path}/
+fi
+
 rm $tempfile
