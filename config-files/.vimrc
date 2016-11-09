@@ -190,6 +190,8 @@ nnoremap <C-l> <C-w>l
 set laststatus=2
 " Disable default mode indicator
 set noshowmode
+" Enable smarter tab line
+let g:airline#extensions#tabline#enabled = 1
 
 " Todo List
 "function! TodoListMode()
