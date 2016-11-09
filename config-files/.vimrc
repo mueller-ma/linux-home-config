@@ -15,6 +15,8 @@ syntax on
 colorscheme desert
 " Dark background
 set background=dark
+" Vim airline theme
+AirlineTheme ubaryd
 
 " Execute astyle (formating text)
 map <silent> <F2> gggqG<CR>
