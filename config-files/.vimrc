@@ -128,8 +128,12 @@ map n nzz
 " Clear highlight from search
 nnoremap <silent> <C-L> :noh<CR>
 
-" Smart indent
+" Indent
+set filetype indent on
 set smartindent
+set tabstop=4
+set shiftwidth=4
+set shiftround
 
 " Restore cursor
 augroup JumpCursorOnEdit
