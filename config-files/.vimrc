@@ -81,7 +81,7 @@ command Wq wq
 " Disable Ex Mode
 nnoremap Q <Nop>
 
-" Save file as root
+" Save file as root (when you are sudoer)
 cmap w!! w !sudo tee > /dev/null %
 
 " Add new lines without entering insert mode
@@ -95,8 +95,12 @@ set keywordprg=":help"
 set ttimeout
 set ttimeoutlen=50
 
-" use wildmenu
+" Use wildmenu
 set wildmenu
+
+" Show more lines and chars when scrolling
+set scrolloff=8
+set sidescrolloff=10
 
 " Backup
 set backup
@@ -212,8 +216,8 @@ let g:airline#extensions#tabline#left_alt_sep = '|||'
 "
 "nnoremap <silent> <Leader>todo :execute TodoListMode()<CR>
 
-" Spell checking
-"if version >= 700
-   "set spl=en spell
-   ""set nospell
-"endif
+" Spell checking (activate `:set spell`)
+if version >= 700
+   set spl=en spell
+   set nospell
+endif
