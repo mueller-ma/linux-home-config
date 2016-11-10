@@ -36,8 +36,8 @@ function downloadAll {
 	rm ../master.tar.gz
 }
 
-cd ${HOME}
-source $configfile
+cd "${HOME}"
+source "$configfile"
 
 URL_NO_HTTP=${URL#http*://}
 URL_NO_HTTP_AND_PATH=${URL_NO_HTTP%%/*}
@@ -47,22 +47,22 @@ mkdir -p ${home_path}/old-config-files
 rm -r ${home_path}/old-config-files/.*
 for file in .vimrc .vim .bashrc .bash_aliases .profile
 do
-	if [ -f $file ] || [ -d $file ]
+	if [ -f "$file" ] || [ -d "$file" ]
 	then
-		cp -r $file ${home_path}/old-config-files/${file}
+		cp -r "$file" ${home_path}/old-config-files/${file}
 		#echo "Backup of $file under ${home_path}/old-config-files/${file}"
 	fi
 done
-touch $tempfile
+touch "$tempfile"
 
 downloadAll #and install
 
-if [ -n $removeOpenhab ]
+if [ -n "$removeOpenhab" ]
 then
 	removeOpenhab
 fi
 
-if [ -n $removeGreeting ]
+if [ -n "$removeGreeting" ]
 then
 	removeGreeting
 fi
@@ -70,14 +70,14 @@ fi
 for file in ${HOME}/${home_path}/persistent/A*
 do
 	name=${file##*/A}
-	cat $file >> ${HOME}/${name}
+	cat "$file" >> ${HOME}/${name}
 done
 
 chmod -R o-rwx ${HOME}/${home_path}/
 
-if [ $UID -eq 0 ] && [ -n $SUDO_USER ] && [[ "$HOME" != "/root" ]]
+if [ "$UID" -eq 0 ] && [ -n "$SUDO_USER" ] && [[ "$HOME" != "/root" ]]
 then
 	chown -R ${SUDO_USER}: ${HOME}/${home_path}/
 fi
 
-rm $tempfile
+rm "$tempfile"
