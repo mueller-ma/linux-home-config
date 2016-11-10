@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -xv
 
 home_path=".linux-home-config"
 tempfile="${HOME}/${home_path}/temp"
@@ -197,7 +198,7 @@ function customMirrorURLQ {
 
 cd ${HOME}
 mkdir -p ${home_path}/{old-config-files,persistent}
-rm -r ${home_path}/{old-config-files,persistent}/{.[!.],}* $configfile 2>/dev/null
+rm -r ${home_path}/{old-config-files,persistent}/{.[!.],}* $configfile
 for file in .vimrc .vim .bashrc .bash_aliases .profile
 do
 	if [ -f $file ] || [ -d $file ]
@@ -222,7 +223,7 @@ done
 
 echo "URL=$URL" >> $configfile
 
-downloadAll #and install
+downloadAll
 
 echo
 
