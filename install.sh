@@ -74,7 +74,7 @@ function downloadGitmodules {
 		NAME_MODULE="${PATH_MODULE##*/}"
 		URL_MODULE=$(cat .gitmodules | grep "url" | cut -d"=" -f 2 | head -n "$i" | tail -n1)
 		URL_MODULE_TAR="${URL_MODULE}/archive/master.tar.gz"
-		cd "$PATH_MODULE"
+		cd $PATH_MODULE
 		DL_CMD="${WGET_OR_CURL_CMD} ${URL_MODULE_TAR}"
 		$DL_CMD
 		tar -xzf master.tar.gz
