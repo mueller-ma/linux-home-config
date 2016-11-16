@@ -80,4 +80,5 @@ then
 	chown -R ${SUDO_USER}: ${HOME}/${home_path}/
 fi
 
-rm "$tempfile"
+rm $tempfile
+exit
