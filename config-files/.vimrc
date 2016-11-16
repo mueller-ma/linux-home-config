@@ -133,7 +133,6 @@ map n nzz
 nnoremap <silent> <C-L> :noh<CR>
 
 " Indent
-set filetype indent on
 set smartindent
 set tabstop=4
 set shiftwidth=4
