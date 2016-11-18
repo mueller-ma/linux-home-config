@@ -1,8 +1,8 @@
 # This file is sourced by .bashrc
 
 # some cd commands
--() { cd -; }
-..() { cd ..; }
+function -() { cd -; }
+function ..() { cd ..; }
 
 # show line numbers except in pipelines
 function grep() { 
