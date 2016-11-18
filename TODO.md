@@ -4,3 +4,4 @@
 * add .selected_editor
 * add firefox config
 * add note that informs user about config files will be overridden
+* add support for opensuse zypper
