@@ -2,6 +2,7 @@
 
 # some cd commands
 function -() { cd -; }
+function --() { cd --; }
 function ..() { cd ..; }
 
 # show line numbers except in pipelines
