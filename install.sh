@@ -199,7 +199,7 @@ function customMirrorURLQ {
 cd "${HOME}"
 mkdir -p ${home_path}/{old-config-files,persistent}
 rm -r ${home_path}/{old-config-files,persistent}/{.[!.],}* "$configfile"
-for file in .vimrc .vim .bashrc .bash_aliases .profile
+for file in .vimrc .vim .bashrc .bash_aliases .profile .gitconfig .inputrc
 do
 	if [ -f "$file" ] || [ -d "$file" ]
 	then
