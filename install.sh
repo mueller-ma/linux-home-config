@@ -24,9 +24,11 @@ function curlOrWget {
 	fi
 }
 
-function removeAutoSync {
-	sed -e 's/${HOME}\/\.linux-home-config\/update\.sh/#${HOME}\/\.linux-home-config\/update\.sh/' ${HOME}/.bashrc > $tempfile
-	cp $tempfile ${HOME}/.bashrc
+function addAutoSync {
+#sed -e 's/${HOME}\/\.linux-home-config\/update\.sh/#${HOME}\/\.linux-home-config\/update\.sh/' ${HOME}/.bashrc > $tempfile
+#cp $tempfile ${HOME}/.bashrc
+echo -e '# Autoupdate of config file (e.g. this file, .bash_aliases, .vimrc)\n${HOME}/.linux-home-config/update.sh' >> ${HOME}/.bashrc
+echo 'AutoSync=true' >> $configfile
 }
 
 function removeOpenhab {
@@ -230,8 +232,8 @@ echo
 echo "Do you want to set up auto sync?"
 select yn in "Yes" "No" "Cancel"; do
     case $yn in
-        Yes ) break;;
-        No ) removeAutoSync; break;;
+        Yes ) addAutoSync; break;;
+        No ) break;;
 	Cancel ) exit;;
     esac
 done

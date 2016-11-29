@@ -15,6 +15,10 @@ function removeGreeting {
 	cp $tempfile ${HOME}/.bashrc
 }
 
+function addAutoSync {
+echo -e '# Autoupdate of config file (e.g. this file, .bash_aliases, .vimrc)\n${HOME}/.linux-home-config/update.sh' >> ${HOME}/.bashrc
+}
+
 function downloadAll {
 	# create folder
 	mkdir -p ${home_path}/download
@@ -65,6 +69,11 @@ fi
 if [ -n "$removeGreeting" ]
 then
 	removeGreeting
+fi
+
+if [ -n "$AutoSync" ]
+then
+	addAutoSync
 fi
 
 for file in ${HOME}/${home_path}/persistent/A*
