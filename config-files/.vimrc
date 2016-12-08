@@ -48,6 +48,8 @@ autocmd BufNewFile,BufRead *.ino            map <silent> <F4> :norm ^2x<CR>
 " Special
 autocmd BufNewFile,BufRead *.xml           map <silent> <F3> vat<esc>a--><esc>'<i<!--<esc>'>$
 autocmd BufNewFile,BufRead *.xml           map <silent> <F4> 0vat<esc>C><esc>'<4x<esc>
+autocmd BufNewFile,BufRead *.htm*          map <silent> <F3> :norm I<!--<esc>A--><esc>
+autocmd BufNewFile,BufRead *.htm*          map <silent> <F4> :norm ^4x<esc>$xxx<esc>
 
 " Set line numbers
 map <silent><F5> :set invnumber<CR>
