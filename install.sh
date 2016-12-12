@@ -30,32 +30,33 @@ echo 'AutoSync=true' >> $configfile
 }
 
 function downloadAll {
-	# create folder
+	# Create folder
 	mkdir -p ${home_path}/download
 	cd ${home_path}/download
-	# download from URL
+	# Download from URL
 	DL_CMD="${WGET_OR_CURL_CMD} ${URL}"
 	echo 'DL_CMD="${WGET_OR_CURL_CMD} ${URL}"' >> $configfile
 	$DL_CMD
-	# unpack tar ball
+	# Unpack tar ball
 	tar -xzf master.tar.gz
 	# go to extracted files
 	cd linux-home-config-master
-	# download git submodules
+	# Download git submodules
 	downloadGitmodules 
 	# cd
 	cd config-files
 	# copy all files to ~
 	cp -r {.[!.],}* ${HOME} 2>/dev/null
-	# create folder for vim and change permission
+	# Create folder for vim and change permission
 	mkdir ${HOME}/.vim/{undo,backup}
 	chmod o-rwx ${HOME}/.vim/{undo,backup}
-	# copy installer in linux-home-config folder
+	# Copy installer in linux-home-config folder
 	cd ..
 	cp install.sh ${HOME}/${home_path}/install.sh
 	cp update.sh ${HOME}/${home_path}/update.sh
-	# remove tar ball
+	# Remove tar ball
 	rm ../master.tar.gz
+	# Generate Helptags
 	vim -u NONE -c 'Helptags' -c q
 }
 
