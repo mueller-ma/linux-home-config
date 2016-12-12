@@ -6,13 +6,13 @@ tempfile="${HOME}/${home_path}/temp"
 configfile="${HOME}/${home_path}/config"
 
 function curlOrWget {
-	if hash curl 2>/dev/null
+	if command -v curl >/dev/null 2>&1
 	then
 		WGET_OR_CURL="curl"
 		WGET_OR_CURL_CMD="curl -s -L -o master.tar.gz"
 		echo 'WGET_OR_CURL="curl"' >> $configfile
 		echo 'WGET_OR_CURL_CMD="curl -s -L -o master.tar.gz"' >> $configfile
-	elif hash wget 2>/dev/null
+	elif command -v wget >/dev/null 2>&1
 	then
 		WGET_OR_CURL="wget"
 		WGET_OR_CURL_CMD="wget --quiet -O master.tar.gz"
