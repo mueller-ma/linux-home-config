@@ -56,7 +56,7 @@ function downloadAll {
 	cp update.sh ${HOME}/${home_path}/update.sh
 	# remove tar ball
 	rm ../master.tar.gz
-	#vim -u NONE -c 'Helptags' -c q 2>&1 >/dev/null
+	vim -u NONE -c 'Helptags' -c q
 }
 
 function downloadGitmodules {
@@ -198,7 +198,7 @@ do
 	if [ -f "$file" ] || [ -d "$file" ]
 	then
 		mv -f "$file" ${home_path}/old-config-files/${file}
-		#echo "Backup of $file under ${home_path}/old-config-files/${file}"
+		echo "Backup of $file under ${home_path}/old-config-files/${file}"
 	fi
 done
 touch "$tempfile"
