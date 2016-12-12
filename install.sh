@@ -106,10 +106,10 @@ function installRecommendation {
 				# update db only once
 				if [ "$DB_UPDATED" -eq 0 ]
 				then
-					"$IS_ROOT" "$PKG_MAN_UPDATE_DB"
+					$PKG_MAN_UPDATE_DB
 					let DB_UPDATED++
 				fi
-				$IS_ROOT "$PKG_MAN_INSTALL" "$cmd"
+				$PKG_MAN_INSTALL $cmd
 			fi
 
 		fi
