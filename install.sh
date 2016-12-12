@@ -59,8 +59,8 @@ function downloadAll {
 	# Generate Helptags
 	vim -u NONE -c 'Helptags' -c q
 	# Restore .vim/backup and .vim/undo
-	cp "${HOME}/${home_path}/old-config-files/.vim/backup/*" "${HOME}/.vim/backup/"
-	cp "${HOME}/${home_path}/old-config-files/.vim/undo/*" "${HOME}/.vim/undo/"
+	cp ${HOME}/${home_path}/old-config-files/.vim/backup/* ${HOME}/.vim/backup/
+	cp ${HOME}/${home_path}/old-config-files/.vim/undo/* ${HOME}/.vim/undo/
 }
 
 function downloadGitmodules {
