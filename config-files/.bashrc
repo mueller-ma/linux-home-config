@@ -125,6 +125,7 @@ fi
 greeting=true
 if [ -n "$greeting" ] && [ ! -f ~/.hushlogin ]
 then
+	echo -e '\n\n'
 	fortune startrek >/dev/null 2>&1 && fortune=true
 	cowsay -f tux foo >/dev/null 2>&1 && cowsay=true
 
