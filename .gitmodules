@@ -7,3 +7,6 @@
 [submodule "config-files/.vim/bundle/vim-fugitive"]
 	path = config-files/.vim/bundle/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive
+[submodule "config-files/.vim/bundle/gnuplot.vim"]
+	path = config-files/.vim/bundle/gnuplot.vim
+	url = https://github.com/uemurax/gnuplot.vim
