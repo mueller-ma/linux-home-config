@@ -11,7 +11,7 @@
 ################################################################################
 #
 # Include system wide inputrc
-$include /etc/inputrc
+#$include /etc/inputrc
 
 # The bell style used e.g. on error or tab completion, possible values are `none', `visible', and `audible' the ringing the bell.
 #set bell-style none
