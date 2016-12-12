@@ -128,18 +128,20 @@ fi
 greeting=true
 if [ -n "$greeting" ] && [ ! -f ~/.hushlogin ]
 then
-	echo -e '\n\n'
 	fortune startrek >/dev/null 2>&1 && fortune=true
 	cowsay -f tux foo >/dev/null 2>&1 && cowsay=true
 
 	if [ "$fortune" = "true" ] && [ "$cowsay" = "true" ]
 	then
+		echo
 		fortune startrek | cowsay -f tux
 	elif [ "$cowsay" = "true" ]
 	then
+		echo
 		echo "Hi $USER" | cowsay -f tux
 	elif [ "$fortune" = "true" ]
 	then
+		echo -e '\n\n'
 		fortune startrek
 	fi
 	unset fortune cowsay
