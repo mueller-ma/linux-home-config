@@ -120,17 +120,13 @@ function installRecommendation {
 function pkgManCMD {
 	PKG_MAN=""
 	VIM_PKG_NAME="vim"
-	for cmd in apt apt-get yum pacman pkg
+	for cmd in apt-get yum pacman pkg
 	do
 		command -v "$cmd" >/dev/null 2>&1
 		if [ "$?" -eq 0 ]
 		then
 			PKG_MAN=true
 			case "$cmd" in
-				"apt")
-					PKG_MAN_UPDATE_DB="${IS_ROOT} apt update"
-					PKG_MAN_INSTALL="${IS_ROOT} apt install"
-					;;
 				"apt-get")
 					PKG_MAN_UPDATE_DB="${IS_ROOT} apt-get update"
 					PKG_MAN_INSTALL="${IS_ROOT} apt-get install"
