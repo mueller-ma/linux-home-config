@@ -5,11 +5,6 @@ home_path=".linux-home-config"
 tempfile="${HOME}/${home_path}/temp"
 configfile="${HOME}/${home_path}/config"
 
-function removeOpenhab {
-	cd $HOME
-	rm .vim/{ftdetect,syntax}/openhab.vim
-}
-
 function removeGreeting {
 	sed -e 's/greeting=true/#greeting=true/' ${HOME}/.bashrc > $tempfile
 	cp $tempfile ${HOME}/.bashrc
@@ -60,11 +55,6 @@ done
 touch "$tempfile"
 
 downloadAll #and install
-
-if [ -n "$removeOpenhab" ]
-then
-	removeOpenhab
-fi
 
 if [ -n "$removeGreeting" ]
 then

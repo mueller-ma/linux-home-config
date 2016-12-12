@@ -31,12 +31,6 @@ echo -e '# Autoupdate of config file (e.g. this file, .bash_aliases, .vimrc)\n${
 echo 'AutoSync=true' >> $configfile
 }
 
-function removeOpenhab {
-	echo 'removeOpenhab="true"' >> $configfile
-	cd $HOME
-	rm .vim/{ftdetect,syntax}/openhab.vim
-}
-
 function downloadAll {
 	# create folder
 	mkdir -p ${home_path}/download
@@ -267,17 +261,6 @@ else
 	done
 	unset editor
 fi
-
-echo
-
-echo "Do you want openHAB support in VIM?"
-select yn in "Yes" "No" "Cancel"; do
-    case $yn in
-        Yes ) break;;
-        No ) removeOpenhab; break;;
-	Cancel ) exit;;
-    esac
-done
 
 echo
 

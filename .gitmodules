@@ -10,3 +10,6 @@
 [submodule "config-files/.vim/bundle/gnuplot.vim"]
 	path = config-files/.vim/bundle/gnuplot.vim
 	url = https://github.com/uemurax/gnuplot.vim
+[submodule "config-files/.vim/bundle/openhab-vim"]
+	path = config-files/.vim/bundle/openhab-vim
+	url = https://github.com/cyberkov/openhab-vim
