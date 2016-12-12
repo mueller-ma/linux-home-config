@@ -123,7 +123,7 @@ fi
 
 # If cowsay and fortunes is installed tux will quote Star Trek when starting bash
 greeting=true
-if [ -n "$greeting" ]
+if [ -n "$greeting" ] && [ ! -f ~/.hushlogin ]
 then
 	fortune startrek >/dev/null 2>&1 && fortune=true
 	cowsay -f tux foo >/dev/null 2>&1 && cowsay=true
