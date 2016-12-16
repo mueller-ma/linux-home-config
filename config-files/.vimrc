@@ -24,7 +24,7 @@ let g:airline_theme='ubaryd'
 " Text formatting
 map <silent> <F9> gg=G<CR>
 map <silent> <F10> gggqG<CR>
-map <F11> :set tabstop=4<CR> :%retab!<CR> :set tabstop=2<CR> :%retab!<CR> :set tabstop=4<CR>
+map <F11> gg=G<CR> :set tabstop=4<CR> :%retab!<CR> :set tabstop=2<CR> :%retab!<CR> :set tabstop=4<CR>
 set formatprg=astyle\ -T4p
 "autocmd BufNewFile,BufRead *.cpp set formatprg=astyle\ -T4p
 
