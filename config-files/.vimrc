@@ -57,6 +57,9 @@ autocmd BufNewFile,BufRead *.htm*          map <silent> <F4> :norm ^4x<esc>$xxx<
 " Set line numbers
 map <silent><F5> :set invnumber<CR>
 
+" Capitalize first letter of a word
+nmap <F6> m`b~``
+
 " Change between tabs with F7 and F8
 map <silent><F7> :tabp<CR>
 map <silent><F8> :tabn<CR>
