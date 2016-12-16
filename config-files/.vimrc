@@ -153,47 +153,47 @@ set shiftround
 
 " Restore cursor
 augroup JumpCursorOnEdit
-au!
-autocmd BufReadPost *
-\ if expand("<afile>:p:h") !=? $TEMP |
-\   if line("'\"") > 1 && line("'\"") <= line("$") |
-\     let JumpCursorOnEdit_foo = line("'\"") |
-\     let b:doopenfold = 1 |
-\     if (foldlevel(JumpCursorOnEdit_foo) > foldlevel(JumpCursorOnEdit_foo - 1)) |
-\        let JumpCursorOnEdit_foo = JumpCursorOnEdit_foo - 1 |
-\        let b:doopenfold = 2 |
-\     endif |
-\     exe JumpCursorOnEdit_foo |
-\   endif |
-\ endif
-" Need to postpone using "zv" until after reading the modelines.
-autocmd BufWinEnter *
-\ if exists("b:doopenfold") |
-\   exe "normal zv" |
-\   if(b:doopenfold > 1) |
-\       exe  "+".1 |
-\   endif |
-\   unlet b:doopenfold |
-\ endif
+	au!
+	autocmd BufReadPost *
+				\ if expand("<afile>:p:h") !=? $TEMP |
+				\   if line("'\"") > 1 && line("'\"") <= line("$") |
+				\     let JumpCursorOnEdit_foo = line("'\"") |
+				\     let b:doopenfold = 1 |
+				\     if (foldlevel(JumpCursorOnEdit_foo) > foldlevel(JumpCursorOnEdit_foo - 1)) |
+				\        let JumpCursorOnEdit_foo = JumpCursorOnEdit_foo - 1 |
+				\        let b:doopenfold = 2 |
+				\     endif |
+				\     exe JumpCursorOnEdit_foo |
+				\   endif |
+				\ endif
+	" Need to postpone using "zv" until after reading the modelines.
+	autocmd BufWinEnter *
+				\ if exists("b:doopenfold") |
+				\   exe "normal zv" |
+				\   if(b:doopenfold > 1) |
+				\       exe  "+".1 |
+				\   endif |
+				\   unlet b:doopenfold |
+				\ endif
 augroup END
 
 " Persistent undo
 if has('persistent_undo')
-    let myUndoDir = expand(vimDir . '/undo')
-    " Create dirs
-    call system('mkdir ' . vimDir)
-    call system('mkdir ' . myUndoDir)
-    let &undodir = myUndoDir
-    set undofile
-    set undolevels=1000
-    set undoreload=10000
+	let myUndoDir = expand(vimDir . '/undo')
+	" Create dirs
+	call system('mkdir ' . vimDir)
+	call system('mkdir ' . myUndoDir)
+	let &undodir = myUndoDir
+	set undofile
+	set undolevels=1000
+	set undoreload=10000
 endif
 
 function! FixArrowkeys()
-    imap <ESC>oA <ESC>ki
-    imap <ESC>oB <ESC>ji
-    imap <ESC>oC <ESC>li
-    imap <ESC>oD <ESC>hi
+	imap <ESC>oA <ESC>ki
+	imap <ESC>oB <ESC>ji
+	imap <ESC>oC <ESC>li
+	imap <ESC>oD <ESC>hi
 endfunction
 
 " Switch tabs more easy
@@ -217,19 +217,19 @@ let g:airline#extensions#tabline#left_alt_sep = '|||'
 
 " Todo List
 "function! TodoListMode()
-   "e ~/.todo.otl
-   ""Calendar
-   "wincmd l
-   "set foldlevel=1
-   "tabnew ~/.notes.txt
-   "tabfirst
-   "" or 'norm! zMzr'
+"e ~/.todo.otl
+""Calendar
+"wincmd l
+"set foldlevel=1
+"tabnew ~/.notes.txt
+"tabfirst
+"" or 'norm! zMzr'
 "endfunction"
 "
 "nnoremap <silent> <Leader>todo :execute TodoListMode()<CR>
 
 " Spell checking (activate `:set spell`)
 if version >= 700
-   set spl=en spell
-   set nospell
+	set spl=en spell
+	set nospell
 endif
