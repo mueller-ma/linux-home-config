@@ -30,29 +30,32 @@ map <silent> <F3> :norm I#<CR>
 map <silent> <F4> :norm ^x<CR>
 
 " 1 Sign
-autocmd BufNewFile,BufRead *vimrc*         map <silent> <F3> :norm I"<CR>
-autocmd BufNewFile,BufRead *.php           map <silent> <F3> :norm I;<CR>
+autocmd BufNewFile,BufRead *vimrc*			map <silent> <F3> :norm I"<CR>
+autocmd BufNewFile,BufRead *php*ini			map <silent> <F3> :norm I;<CR>
+autocmd BufNewFile,BufRead *.zone			map <silent> <F3> :norm I;<CR>
 " 2 Signs
-autocmd BufNewFile,BufRead *.cpp           map <silent> <F3> :norm I//<CR>
-autocmd BufNewFile,BufRead *.c             map <silent> <F3> :norm I//<CR>
-autocmd BufNewFile,BufRead *.items         map <silent> <F3> :norm I//<CR>
-autocmd BufNewFile,BufRead *.rules         map <silent> <F3> :norm I//<CR>
-autocmd BufNewFile,BufRead *.sitemap       map <silent> <F3> :norm I//<CR>
-autocmd BufNewFile,BufRead *.js            map <silent> <F3> :norm I//<CR>
-autocmd BufNewFile,BufRead *.ino           map <silent> <F3> :norm I//<CR>
+autocmd BufNewFile,BufRead *.cpp			map <silent> <F3> :norm I//<CR>
+autocmd BufNewFile,BufRead *.c				map <silent> <F3> :norm I//<CR>
+autocmd BufNewFile,BufRead *.items			map <silent> <F3> :norm I//<CR>
+autocmd BufNewFile,BufRead *.rules			map <silent> <F3> :norm I//<CR>
+autocmd BufNewFile,BufRead *.sitemap		map <silent> <F3> :norm I//<CR>
+autocmd BufNewFile,BufRead *.js				map <silent> <F3> :norm I//<CR>
+autocmd BufNewFile,BufRead *.ino			map <silent> <F3> :norm I//<CR>
+autocmd BufNewFile,BufRead *.php			map <silent> <F3> :norm I//<CR>
 " Remove 2
-autocmd BufNewFile,BufRead *.cpp           map <silent> <F4> :norm ^2x<CR>
-autocmd BufNewFile,BufRead *.c             map <silent> <F4> :norm ^2x<CR>
-autocmd BufNewFile,BufRead *.items         map <silent> <F4> :norm ^2x<CR>
-autocmd BufNewFile,BufRead *.rules         map <silent> <F4> :norm ^2x<CR>
-autocmd BufNewFile,BufRead *.sitemap       map <silent> <F4> :norm ^2x<CR>
-autocmd BufNewFile,BufRead *.js            map <silent> <F4> :norm ^2x<CR>
-autocmd BufNewFile,BufRead *.ino            map <silent> <F4> :norm ^2x<CR>
+autocmd BufNewFile,BufRead *.cpp			map <silent> <F4> :norm ^2x<CR>
+autocmd BufNewFile,BufRead *.c				map <silent> <F4> :norm ^2x<CR>
+autocmd BufNewFile,BufRead *.items			map <silent> <F4> :norm ^2x<CR>
+autocmd BufNewFile,BufRead *.rules			map <silent> <F4> :norm ^2x<CR>
+autocmd BufNewFile,BufRead *.sitemap		map <silent> <F4> :norm ^2x<CR>
+autocmd BufNewFile,BufRead *.js				map <silent> <F4> :norm ^2x<CR>
+autocmd BufNewFile,BufRead *.ino			map <silent> <F4> :norm ^2x<CR>
+autocmd BufNewFile,BufRead *.php			map <silent> <F4> :norm ^2x<CR>
 " Special
-autocmd BufNewFile,BufRead *.xml           map <silent> <F3> vat<esc>a--><esc>'<i<!--<esc>'>$
-autocmd BufNewFile,BufRead *.xml           map <silent> <F4> 0vat<esc>C><esc>'<4x<esc>
-autocmd BufNewFile,BufRead *.htm*          map <silent> <F3> :norm I<!--<esc>A--><esc>
-autocmd BufNewFile,BufRead *.htm*          map <silent> <F4> :norm ^4x<esc>$xxx<esc>
+autocmd BufNewFile,BufRead *.xml			map <silent> <F3> vat<esc>a--><esc>'<i<!--<esc>'>$
+autocmd BufNewFile,BufRead *.xml			map <silent> <F4> 0vat<esc>C><esc>'<4x<esc>
+autocmd BufNewFile,BufRead *.htm*			map <silent> <F3> :norm I<!--<esc>A--><esc>
+autocmd BufNewFile,BufRead *.htm*			map <silent> <F4> :norm ^4x<esc>$xxx<esc>
 
 " Set line numbers
 map <silent><F5> :set invnumber<CR>
