@@ -22,10 +22,10 @@ set background=dark
 let g:airline_theme='ubaryd'
 
 " Text formatting
-map <silent> <F2> gg=G<CR>
-autocmd BufNewFile,BufRead *.cpp map <silent> <F2> gggqG<CR>
+map <silent> <F9> gg=G<CR>
+map <silent> <F10> gggqG<CR>
 set formatprg=astyle\ -T4p
-"autocmd BufNewFile,BufRead *.cpp set formatprg=astyle\ -T4p
+autocmd BufNewFile,BufRead *.cpp set formatprg=astyle\ -T4p
 
 " Comment with F3 and uncomment with F4
 " Default
@@ -71,7 +71,7 @@ map <silent><F7> :tabp<CR>
 map <silent><F8> :tabn<CR>
 
 " Show tabs
-noremap <F9> :<C-U>setlocal lcs=tab:>-,trail:-,eol:$ list! list? <CR>
+noremap <F2> :<C-U>setlocal lcs=tab:>-,trail:-,eol:$ list! list? <CR>
 
 " Map leader key to ","
 let mapleader = ","
