@@ -21,8 +21,11 @@ set background=dark
 " Vim airline theme
 let g:airline_theme='ubaryd'
 
-" Execute astyle (formating text)
-map <silent> <F2> gggqG<CR>
+" Text formatting
+map <silent> <F2> gg=G<CR>
+autocmd BufNewFile,BufRead *.cpp map <silent> <F2> gggqG<CR>
+set formatprg=astyle\ -T4p
+"autocmd BufNewFile,BufRead *.cpp set formatprg=astyle\ -T4p
 
 " Comment with F3 and uncomment with F4
 " Default
@@ -67,6 +70,9 @@ nmap <F6> m`b~``
 map <silent><F7> :tabp<CR>
 map <silent><F8> :tabn<CR>
 
+" Show tabs
+noremap <F9> :<C-U>setlocal lcs=tab:>-,trail:-,eol:$ list! list? <CR>
+
 " Map leader key to ","
 let mapleader = ","
 let g:mapleader = ","
@@ -78,12 +84,6 @@ let g:mapleader = ","
 " Switch v and V
 noremap v V
 noremap V v
-
-" Asytle settings
-" for all files
-autocmd BufNewFile,BufRead * set formatprg=astyle\ -T4
-" for *.cpp
-autocmd BufNewFile,BufRead *.cpp set formatprg=astyle\ -T4p
 
 " Ignore case of Q and W in command mode
 command Q q
@@ -150,6 +150,7 @@ set smartindent
 set tabstop=4
 set shiftwidth=4
 set shiftround
+set noexpandtab
 
 " Restore cursor
 augroup JumpCursorOnEdit
