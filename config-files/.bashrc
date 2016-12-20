@@ -148,7 +148,7 @@ then
 		echo "Hi $USER" | cowsay -f tux
 	elif [ "$fortune" = "true" ]
 	then
-		echo -e '\n\n'
+		#echo -e '\n\n'
 		fortune startrek
 	fi
 	unset fortune cowsay
