@@ -125,7 +125,7 @@ if ! shopt -oq posix; then
 fi
 
 # logout after 10 minutes
-TMOUT="$(( 60*10 ))";
+TMOUT="$(( 60*60 ))";
 [ -z "$DISPLAY" ] && export TMOUT;
 case $( /usr/bin/tty ) in
 	/dev/tty[0-9]*) export TMOUT;;
