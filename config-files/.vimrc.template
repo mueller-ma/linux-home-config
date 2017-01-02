@@ -118,10 +118,10 @@ set sidescrolloff=10	" lite
 
 " Backup
 set backup	" lite
-"set backupdir=~/.vim/backup
-let myBackupDir = expand(vimDir . '/backup')	" lite
-call system('mkdir ' . myBackupDir)	" lite
-let &backupdir = myBackupDir	" lite
+set backupdir=~/.vim/backup " lite-only
+let myBackupDir = expand(vimDir . '/backup')
+call system('mkdir ' . myBackupDir)
+let &backupdir = myBackupDir
 
 " Show matching brackets
 set showmatch	" lite
@@ -181,11 +181,12 @@ augroup END
 
 " Persistent undo
 if has('persistent_undo')	" lite
-	let myUndoDir = expand(vimDir . '/undo')	" lite
-	" Create dirs	" lite
-	call system('mkdir ' . vimDir)	" lite
-	call system('mkdir ' . myUndoDir)	" lite
-	let &undodir = myUndoDir	" lite
+	let myUndoDir = expand(vimDir . '/undo')
+	" Create dirs
+	call system('mkdir ' . vimDir)
+	call system('mkdir ' . myUndoDir)
+	let &undodir = myUndoDir
+	set undodir = ~/.vim/undo	" lite-only
 	set undofile	" lite
 	set undolevels=1000	" lite
 	set undoreload=10000	" lite
