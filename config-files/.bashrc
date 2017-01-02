@@ -153,3 +153,6 @@ then
 	fi
 	unset fortune cowsay
 fi
+
+# rvim as root editor
+export SUDO_EDITOR=rvim
