@@ -25,8 +25,8 @@ function curlOrWget {
 }
 
 function addAutoSync {
-echo -e '# Autoupdate of config file (e.g. this file, .bash_aliases, .vimrc)\n${HOME}/.linux-home-config/update.sh' >> ${HOME}/.bashrc
-echo 'AutoSync=true' >> $configfile
+	echo -e '# Autoupdate of config file (e.g. this file, .bash_aliases, .vimrc)\n${HOME}/.linux-home-config/update.sh' >> ${HOME}/.bashrc
+	echo 'AutoSync=true' >> $configfile
 }
 
 function downloadAll {
@@ -96,11 +96,11 @@ function removeGreeting {
 function installRecommendation {
 	echo "Do you want to install some software?"
 	select yn in "Yes" "No" "Cancel"; do
-	    case $yn in
+		case $yn in
 		Yes ) break;;
 		No )  return 0;;
 		Cancel ) exit;;
-	    esac
+		esac
 	done
 	pkgManCMD
 	DB_UPDATED=0
@@ -212,11 +212,11 @@ curlOrWget
 
 echo "Which mirror do you want to use?"
 select yn in "Custom" "Github" "Cancel"; do
-    case $yn in
+	case $yn in
 	Custom ) customMirrorURLQ; break;;
 	Github ) URL="https://github.com/mueller-ma/linux-home-config/archive/master.tar.gz"; break;;
 	Cancel ) echo "You don't have the config files in your \$HOME directory now!"; exit;;
-    esac
+	esac
 done
 
 echo "URL="$URL"" >> "$configfile"
@@ -227,11 +227,11 @@ echo
 
 echo "Do you want to set up auto sync?"
 select yn in "Yes" "No" "Cancel"; do
-    case $yn in
-        Yes ) addAutoSync; break;;
-        No ) break;;
+	case $yn in
+		Yes ) addAutoSync; break;;
+		No ) break;;
 	Cancel ) exit;;
-    esac
+	esac
 done
 
 echo
@@ -246,20 +246,32 @@ echo
 
 if $(isInstalledEditor vim) 2>/dev/null
 then
-	echo "Your editor is vim"
-	echo -e "\n# Use Vim instead of vi\nalias vi='vim'" >> ${HOME}/.bash_aliases
-	echo -e "\n# Use Vim instead of vi\nalias vi='vim'" >> ${HOME}/${home_path}/persistent/A.bash_aliases
+	if [ "$UID" -eq 0 ]
+	then
+		echo "Your editor is rvim"
+		echo -e "\n# Use rVIM instead of VI\nalias vi='rvim'" >> ${HOME}/.bash_aliases
+		echo -e "\n# Use rVIM instead of VI\nalias vi='rvim'" >> ${HOME}/${home_path}/persistent/A.bash_aliases
+		echo -e "\n# Use rVIM instead of VIM\nalias vim='rvim'" >> ${HOME}/.bash_aliases
+		echo -e "\n# Use rVIM instead of VIM\nalias vim='rvim'" >> ${HOME}/${home_path}/persistent/A.bash_aliases
+		echo -e "\n# Use vimrc.lite\nalias rvim='rvim -u ~/.vimrc.lite'" >> ${HOME}/.bash_aliases
+		echo -e "\n# Use vimrc.lite\nalias rvim='rvim -u ~/.vimrc.lite'" >> ${HOME}/${home_path}/persistent/A.bash_aliases
+	else
+		echo "Your editor is vim"
+		echo -e "\n# Use VIM instead of VI\nalias vi='vim'" >> ${HOME}/.bash_aliases
+		echo -e "\n# Use VIM instead of VI\nalias vi='vim'" >> ${HOME}/${home_path}/persistent/A.bash_aliases
+	fi
 else
 	echo "What is your favorite editor?"
-	select editor in "vi" "vim" "emacs" "nano" "ed" "Cancel"; do
-	    case $editor in
+	select editor in "vi" "vim" "rvim" "emacs" "nano" "ed" "Cancel"; do
+		case $editor in
 		vi ) isInstalledEditor vi && break;;
 		vim ) isInstalledEditor vim && break;;
+		rvim ) isInstalledEditor rvim && break;;
 		emacs ) isInstalledEditor emacs && break;;
 		nano ) isInstalledEditor nano && break;;
 		ed ) isInstalledEditor ed && break;;
 		Cancel ) exit;;
-	    esac
+		esac
 	done
 	unset editor
 fi
@@ -268,11 +280,11 @@ echo
 
 echo "Do you like Tux?"
 select yn in "Yes" "No" "Cancel"; do
-    case $yn in
-        Yes ) echo ':)'; break;;
-        No ) removeGreeting; echo ':('; break;;
+	case $yn in
+		Yes ) echo ':)'; break;;
+		No ) removeGreeting; echo ':('; break;;
 	Cancel ) exit;;
-    esac
+	esac
 done
 
 chmod -R o-rwx ${HOME}/${home_path}/

@@ -19,3 +19,7 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 # Use Vim tabs
 alias vim='vim -p'
+
+# Use vimrc.lite in rvim
+alias rvi='rvim'
+alias rvim='rvim -u ~/.vimrc.lite'
