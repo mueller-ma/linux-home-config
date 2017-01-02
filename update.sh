@@ -31,6 +31,10 @@ function downloadAll {
 	cd ..
 	cp install.sh ${HOME}/${home_path}/install.sh
 	cp update.sh ${HOME}/${home_path}/update.sh
+	# Generate vimrc and vimrc.lite
+	cd $HOME
+	cat .vimrc.template | sed 's/	" lite//' > ${HOME}/.vimrc
+	cat .vimrc.template | grep '" lite$' | sed 's/	" lite//' > ${HOME}/.vimrc.lite
 	# remove tar ball
 	rm ../master.tar.gz
 }

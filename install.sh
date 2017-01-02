@@ -56,6 +56,10 @@ function downloadAll {
 	cp update.sh ${HOME}/${home_path}/update.sh
 	# Remove tar ball
 	rm ../master.tar.gz
+	# Generate vimrc and vimrc.lite
+	cd $HOME
+	cat .vimrc.template | sed 's/	" lite//' > ${HOME}/.vimrc
+	cat .vimrc.template | grep '" lite$' | sed 's/	" lite//' > ${HOME}/.vimrc.lite
 	# Generate Helptags
 	vim -u NONE -c 'Helptags' -c q
 	# Restore .vim/backup and .vim/undo
