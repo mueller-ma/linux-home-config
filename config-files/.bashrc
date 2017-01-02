@@ -148,7 +148,7 @@ then
 		echo "Hi $USER" | cowsay -f tux
 	elif [ "$fortune" = "true" ]
 	then
-		[ -n "$SSH_TTY" ] && echo -e '\n\n'
+		#[ -n "$SSH_TTY" ] && echo -e '\n\n'
 		fortune startrek
 	fi
 	unset fortune cowsay
