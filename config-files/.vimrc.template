@@ -186,7 +186,7 @@ if has('persistent_undo') " lite
 	call system('mkdir ' . vimDir)
 	call system('mkdir ' . myUndoDir)
 	let &undodir = myUndoDir
-	set undodir = ~/.vim/undo " lite-only
+	set undodir=~/.vim/undo " lite-only
 	set undofile " lite
 	set undolevels=1000 " lite
 	set undoreload=10000 " lite
