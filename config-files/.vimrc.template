@@ -2,7 +2,7 @@
 " To make permanent changes (e. g. in .bashrc), create the file "A.bashrc" in ~/.linux_home_config/persistent/ and run ~/.linux_home_config/update.sh
 
 " Just to be sure
-set nocompatible	" lite
+set nocompatible " lite
 
 execute pathogen#infect()
 filetype plugin indent on
@@ -13,145 +13,145 @@ let vimDir = '$HOME/.vim'
 "let &runtimepath.=','.vimDir "default, set it only when really needed
 
 " Switch syntax highlighting on
-syntax on	" lite
+syntax on " lite
 " Change colorscheme to desert for better readable comments
-colorscheme desert	" lite
+colorscheme desert " lite
 " Dark background
-set background=dark	" lite
+set background=dark " lite
 " Vim airline theme
 let g:airline_theme='ubaryd'
 
 " Text formatting
-map <silent> <F9> gg=G<CR>	" lite
-map <silent> <F10> gggqG<CR>	" lite
-map <F11> gg=G<CR> :set tabstop=4<CR> :%retab!<CR> :set tabstop=2<CR> :%retab!<CR> :set tabstop=4<CR>	" lite
-set formatprg=astyle\ -T4p	" lite
+map <silent> <F9> gg=G<CR> " lite
+map <silent> <F10> gggqG<CR> " lite
+map <F11> gg=G<CR> :set tabstop=4<CR> :%retab!<CR> :set tabstop=2<CR> :%retab!<CR> :set tabstop=4<CR> " lite
+set formatprg=astyle\ -T4p " lite
 "autocmd BufNewFile,BufRead *.cpp set formatprg=astyle\ -T4p
 
 " Comment with F3 and uncomment with F4
 " Default
-map <silent> <F3> :norm I#<CR>	" lite
-map <silent> <F4> :norm ^x<CR>	" lite
+map <silent> <F3> :norm I#<CR> " lite
+map <silent> <F4> :norm ^x<CR> " lite
 
 " 1 Sign
-autocmd BufNewFile,BufRead *vimrc*			map <silent> <F3> :norm I"<CR>	" lite
-autocmd BufNewFile,BufRead *php*ini			map <silent> <F3> :norm I;<CR>	" lite
-autocmd BufNewFile,BufRead *.zone			map <silent> <F3> :norm I;<CR>	" lite
+autocmd BufNewFile,BufRead *vimrc*			map <silent> <F3> :norm I"<CR> " lite
+autocmd BufNewFile,BufRead *php*ini			map <silent> <F3> :norm I;<CR> " lite
+autocmd BufNewFile,BufRead *.zone			map <silent> <F3> :norm I;<CR> " lite
 " 2 Signs
-autocmd BufNewFile,BufRead *.cpp			map <silent> <F3> :norm I//<CR>	" lite
-autocmd BufNewFile,BufRead *.c				map <silent> <F3> :norm I//<CR>	" lite
-autocmd BufNewFile,BufRead *.items			map <silent> <F3> :norm I//<CR>	" lite
-autocmd BufNewFile,BufRead *.rules			map <silent> <F3> :norm I//<CR>	" lite
-autocmd BufNewFile,BufRead *.sitemap		map <silent> <F3> :norm I//<CR>	" lite
-autocmd BufNewFile,BufRead *.js				map <silent> <F3> :norm I//<CR>	" lite
-autocmd BufNewFile,BufRead *.ino			map <silent> <F3> :norm I//<CR>	" lite
-autocmd BufNewFile,BufRead *.php			map <silent> <F3> :norm I//<CR>	" lite
+autocmd BufNewFile,BufRead *.cpp			map <silent> <F3> :norm I//<CR> " lite
+autocmd BufNewFile,BufRead *.c				map <silent> <F3> :norm I//<CR> " lite
+autocmd BufNewFile,BufRead *.items			map <silent> <F3> :norm I//<CR> " lite
+autocmd BufNewFile,BufRead *.rules			map <silent> <F3> :norm I//<CR> " lite
+autocmd BufNewFile,BufRead *.sitemap		map <silent> <F3> :norm I//<CR> " lite
+autocmd BufNewFile,BufRead *.js				map <silent> <F3> :norm I//<CR> " lite
+autocmd BufNewFile,BufRead *.ino			map <silent> <F3> :norm I//<CR> " lite
+autocmd BufNewFile,BufRead *.php			map <silent> <F3> :norm I//<CR> " lite
 " Remove 2
-autocmd BufNewFile,BufRead *.cpp			map <silent> <F4> :norm ^2x<CR>	" lite
-autocmd BufNewFile,BufRead *.c				map <silent> <F4> :norm ^2x<CR>	" lite
-autocmd BufNewFile,BufRead *.items			map <silent> <F4> :norm ^2x<CR>	" lite
-autocmd BufNewFile,BufRead *.rules			map <silent> <F4> :norm ^2x<CR>	" lite
-autocmd BufNewFile,BufRead *.sitemap		map <silent> <F4> :norm ^2x<CR>	" lite
-autocmd BufNewFile,BufRead *.js				map <silent> <F4> :norm ^2x<CR>	" lite
-autocmd BufNewFile,BufRead *.ino			map <silent> <F4> :norm ^2x<CR>	" lite
-autocmd BufNewFile,BufRead *.php			map <silent> <F4> :norm ^2x<CR>	" lite
+autocmd BufNewFile,BufRead *.cpp			map <silent> <F4> :norm ^2x<CR> " lite
+autocmd BufNewFile,BufRead *.c				map <silent> <F4> :norm ^2x<CR> " lite
+autocmd BufNewFile,BufRead *.items			map <silent> <F4> :norm ^2x<CR> " lite
+autocmd BufNewFile,BufRead *.rules			map <silent> <F4> :norm ^2x<CR> " lite
+autocmd BufNewFile,BufRead *.sitemap		map <silent> <F4> :norm ^2x<CR> " lite
+autocmd BufNewFile,BufRead *.js				map <silent> <F4> :norm ^2x<CR> " lite
+autocmd BufNewFile,BufRead *.ino			map <silent> <F4> :norm ^2x<CR> " lite
+autocmd BufNewFile,BufRead *.php			map <silent> <F4> :norm ^2x<CR> " lite
 " Special
-autocmd BufNewFile,BufRead *.xml			map <silent> <F3> vat<esc>a--><esc>'<i<!--<esc>'>$	" lite
-autocmd BufNewFile,BufRead *.xml			map <silent> <F4> 0vat<esc>C><esc>'<4x<esc>	" lite
-autocmd BufNewFile,BufRead *.htm*			map <silent> <F3> :norm I<!--<esc>A--><esc>	" lite
-autocmd BufNewFile,BufRead *.htm*			map <silent> <F4> :norm ^4x<esc>$xxx<esc>	" lite
+autocmd BufNewFile,BufRead *.xml			map <silent> <F3> vat<esc>a--><esc>'<i<!--<esc>'>$ " lite
+autocmd BufNewFile,BufRead *.xml			map <silent> <F4> 0vat<esc>C><esc>'<4x<esc> " lite
+autocmd BufNewFile,BufRead *.htm*			map <silent> <F3> :norm I<!--<esc>A--><esc> " lite
+autocmd BufNewFile,BufRead *.htm*			map <silent> <F4> :norm ^4x<esc>$xxx<esc> " lite
 
 " Set line numbers
-map <silent><F5> :set invnumber<CR>	" lite
+map <silent><F5> :set invnumber<CR> " lite
 
 " Capitalize first letter of a word
-nmap <F6> m`b~``	" lite
+nmap <F6> m`b~`` " lite
 
 " Change between tabs with F7 and F8
-map <silent><F7> :tabp<CR>	" lite
-map <silent><F8> :tabn<CR>	" lite
+map <silent><F7> :tabp<CR> " lite
+map <silent><F8> :tabn<CR> " lite
 
 " Show tabs
-noremap <F2> :<C-U>setlocal lcs=tab:>-,trail:-,eol:$ list! list? <CR>	" lite
+noremap <F2> :<C-U>setlocal lcs=tab:>-,trail:-,eol:$ list! list? <CR> " lite
 
 " Map leader key to ","
-let mapleader = ","	" lite
-let g:mapleader = ","	" lite
+let mapleader = "," " lite
+let g:mapleader = "," " lite
 
 " Better pasting
 "noremap P ]P
 "noremap p ]p
 
 " Switch v and V
-noremap v V	" lite
-noremap V v	" lite
+noremap v V " lite
+noremap V v " lite
 
 " Ignore case of Q and W in command mode
-command Q q	" lite
-command W w	" lite
-command WQ wq	" lite
-command Wq wq	" lite
+command Q q " lite
+command W w " lite
+command WQ wq " lite
+command Wq wq " lite
 
 " Disable Ex Mode
-nnoremap Q <Nop>	" lite
+nnoremap Q <Nop> " lite
 
 " Save file as root (when you are sudoer)
 cmap w!! w !sudo tee > /dev/null %
 
 " Add new lines without entering insert mode
-nnoremap <silent> ö o<ESC>	" lite
-nnoremap <silent> Ö O<ESC>	" lite
+nnoremap <silent> ö o<ESC> " lite
+nnoremap <silent> Ö O<ESC> " lite
 
 " Open help instead of calling man
 set keywordprg=":help"
 
 " ttimeout
-set ttimeout	" lite
-set ttimeoutlen=50	" lite
+set ttimeout " lite
+set ttimeoutlen=50 " lite
 
 " Use wildmenu
-set wildmenu	" lite
+set wildmenu " lite
 
 " Show more lines and chars when scrolling
-set scrolloff=8	" lite
-set sidescrolloff=10	" lite
+set scrolloff=8 " lite
+set sidescrolloff=10 " lite
 
 " Backup
-set backup	" lite
+set backup " lite
 set backupdir=~/.vim/backup " lite-only
 let myBackupDir = expand(vimDir . '/backup')
 call system('mkdir ' . myBackupDir)
 let &backupdir = myBackupDir
 
 " Show matching brackets
-set showmatch	" lite
+set showmatch " lite
 
 " Show command
-set showcmd	" lite
+set showcmd " lite
 
 " Disable mouse support
-set mouse=	" lite
+set mouse= " lite
 
 " Set Backspace
-set backspace=2	" lite
+set backspace=2 " lite
 
 " Search options
-set hlsearch	" lite
-set ignorecase	" lite
-set smartcase	" lite
-set incsearch	" lite
-map N Nzz	" lite
-map n nzz	" lite
+set hlsearch " lite
+set ignorecase " lite
+set smartcase " lite
+set incsearch " lite
+map N Nzz " lite
+map n nzz " lite
 
 " Clear highlight from search
-nnoremap <silent> <C-L> :noh<CR>	" lite
+nnoremap <silent> <C-L> :noh<CR> " lite
 
 " Indent
-set smartindent	" lite
-set tabstop=4	" lite
-set shiftwidth=4	" lite
-set shiftround	" lite
-set noexpandtab	" lite
+set smartindent " lite
+set tabstop=4 " lite
+set shiftwidth=4 " lite
+set shiftround " lite
+set noexpandtab " lite
 
 " Restore cursor
 augroup JumpCursorOnEdit
@@ -180,30 +180,30 @@ augroup JumpCursorOnEdit
 augroup END
 
 " Persistent undo
-if has('persistent_undo')	" lite
+if has('persistent_undo') " lite
 	let myUndoDir = expand(vimDir . '/undo')
 	" Create dirs
 	call system('mkdir ' . vimDir)
 	call system('mkdir ' . myUndoDir)
 	let &undodir = myUndoDir
-	set undodir = ~/.vim/undo	" lite-only
-	set undofile	" lite
-	set undolevels=1000	" lite
-	set undoreload=10000	" lite
-endif	" lite
+	set undodir = ~/.vim/undo " lite-only
+	set undofile " lite
+	set undolevels=1000 " lite
+	set undoreload=10000 " lite
+endif " lite
 
-function! FixArrowkeys()	" lite
-	imap <ESC>oA <ESC>ki	" lite
-	imap <ESC>oB <ESC>ji	" lite
-	imap <ESC>oC <ESC>li	" lite
-	imap <ESC>oD <ESC>hi	" lite
-endfunction	" lite
+function! FixArrowkeys() " lite
+	imap <ESC>oA <ESC>ki " lite
+	imap <ESC>oB <ESC>ji " lite
+	imap <ESC>oC <ESC>li " lite
+	imap <ESC>oD <ESC>hi " lite
+endfunction " lite
 
 " Switch tabs more easy
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+nnoremap <C-h> <C-w>h " lite
+nnoremap <C-j> <C-w>j " lite
+nnoremap <C-k> <C-w>k " lite
+nnoremap <C-l> <C-w>l " lite
 
 " New and untested stuff
 
