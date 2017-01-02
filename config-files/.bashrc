@@ -125,8 +125,8 @@ if ! shopt -oq posix; then
 fi
 
 # logout after 10 minutes
-TMOUT="$(( 60*60 ))";
-[ -z "$DISPLAY" ] && export TMOUT;
+TMOUT="$(( 10*60 ))";
+[ -z "$DISPLAY" ] && [ -z "$SSH_TTY" ] && export TMOUT;
 case $( /usr/bin/tty ) in
 	/dev/tty[0-9]*) export TMOUT;;
 esac
@@ -148,7 +148,7 @@ then
 		echo "Hi $USER" | cowsay -f tux
 	elif [ "$fortune" = "true" ]
 	then
-		#echo -e '\n\n'
+		[ -n "$SSH_TTY" ] && echo -e '\n\n'
 		fortune startrek
 	fi
 	unset fortune cowsay
