@@ -58,8 +58,8 @@ function downloadAll {
 	rm ../master.tar.gz
 	# Generate vimrc and vimrc.lite
 	cd $HOME
-	cat .vimrc.template | grep -v '" lite-only' | sed --posix -r 's/" lite(-only)//' > ${HOME}/.vimrc
-	cat .vimrc.template | grep '" lite' | sed --posix -r 's/" lite(-only)//' > ${HOME}/.vimrc.lite
+	cat .vimrc.template | grep -v '" lite-only' | sed --posix -r 's/" lite//' > ${HOME}/.vimrc
+	cat .vimrc.template | grep '" lite' | sed --posix -r 's/" lite(.*)//' > ${HOME}/.vimrc.lite
 	# Generate Helptags
 	vim -u NONE -c 'Helptags' -c q
 	# Restore .vim/backup and .vim/undo
