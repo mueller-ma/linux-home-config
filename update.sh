@@ -48,7 +48,7 @@ URL_NO_HTTP_AND_PATH=${URL_NO_HTTP%%/*}
 
 mkdir -p ${home_path}/old-config-files
 rm -r ${home_path}/old-config-files/.*
-for file in .vimrc .vim .bashrc .bash_aliases .profile .gitconfig .inputrc
+for file in .vimrc .vimrc.lite .vimrc.template .vim .bashrc .bash_aliases .profile .gitconfig .inputrc
 do
 	if [ -f "$file" ] || [ -d "$file" ]
 	then
