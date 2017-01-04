@@ -94,35 +94,38 @@ function removeGreeting {
 }
 
 function installRecommendation {
-	echo "Do you want to install some software?"
-	select yn in "Yes" "No" "Cancel"; do
-		case $yn in
-		Yes ) break;;
-		No )  return 0;;
-		Cancel ) exit;;
-		esac
-	done
-	pkgManCMD
-	DB_UPDATED=0
-	for cmd in "$VIM_PKG_NAME" tree
-	do
-		command -v "$cmd" >/dev/null 2>&1
-		if [ "$?" -ne 0 ]
-		then
-			if [ "$PKG_MAN" ]
-			then
-				# update db only once
-				if [ "$DB_UPDATED" -eq 0 ]
-				then
-					$PKG_MAN_UPDATE_DB
-					let DB_UPDATED++
-				fi
-				$PKG_MAN_INSTALL $cmd
-			fi
+	if [ -z "$LINUX_HOME_CONFIG_INSTALL" ]
+	then
+		echo "Do you want to install some software?"
+		select LINUX_HOME_CONFIG_INSTALL in "Yes" "No"; do
+			case $LINUX_HOME_CONFIG_INSTALL in
+			"Yes"|"yes"|"No"|"no" ) break;;
+			esac
+		done
+	fi
+	case $LINUX_HOME_CONFIG_INSTALL in
+	"No"|"no" )  return 0;;
+	esac
 
-		fi
-		
-	done
+		pkgManCMD
+		DB_UPDATED=0
+		for cmd in "$VIM_PKG_NAME" tree
+		do
+			command -v "$cmd" >/dev/null 2>&1
+			if [ "$?" -ne 0 ]
+			then
+				if [ "$PKG_MAN" ]
+				then
+					# update db only once
+					if [ "$DB_UPDATED" -eq 0 ]
+					then
+						$PKG_MAN_UPDATE_DB
+						let DB_UPDATED++
+					fi
+					$PKG_MAN_INSTALL $cmd
+				fi
+			fi
+		done
 }
 
 function pkgManCMD {
@@ -137,7 +140,7 @@ function pkgManCMD {
 			case "$cmd" in
 				"apt-get")
 					PKG_MAN_UPDATE_DB="${IS_ROOT} apt-get update"
-					PKG_MAN_INSTALL="${IS_ROOT} apt-get install"
+					PKG_MAN_INSTALL="${IS_ROOT} apt-get -y install"
 					break
 					;;
 				"yum")
@@ -210,14 +213,20 @@ touch "$configfile"
 
 curlOrWget
 
-echo "Which mirror do you want to use?"
-select yn in "Custom" "Github" "Cancel"; do
-	case $yn in
-	Custom ) customMirrorURLQ; break;;
-	Github ) URL="https://github.com/mueller-ma/linux-home-config/archive/master.tar.gz"; break;;
-	Cancel ) echo "You don't have the config files in your \$HOME directory now!"; exit;;
-	esac
-done
+if [ -z "$LINUX_HOME_CONFIG_MIRROR" ]
+then
+	echo "Which mirror do you want to use?"
+	select LINUX_HOME_CONFIG_MIRROR in "Custom" "Github"; do
+		case $LINUX_HOME_CONFIG_MIRROR in
+		"Custom"|"Github" ) break;;
+		esac
+	done
+fi
+case $LINUX_HOME_CONFIG_MIRROR in
+Custom ) customMirrorURLQ; break;;
+Github ) URL="https://github.com/mueller-ma/linux-home-config/archive/master.tar.gz"; break;;
+Cancel ) echo "You don't have the config files in your \$HOME directory now!"; exit;;
+esac
 
 echo "URL="$URL"" >> "$configfile"
 
@@ -225,14 +234,18 @@ downloadAll
 
 echo
 
-echo "Do you want to set up auto sync?"
-select yn in "Yes" "No" "Cancel"; do
-	case $yn in
-		Yes ) addAutoSync; break;;
-		No ) break;;
-	Cancel ) exit;;
-	esac
-done
+if [ -z "$LINUX_HOME_CONFIG_AUTOSYNC" ]
+then
+	echo "Do you want to set up auto sync?"
+	select LINUX_HOME_CONFIG_AUTOSYNC in "Yes" "No"; do
+		case $LINUX_HOME_CONFIG_AUTOSYNC in
+			"Yes"|"yes"|"No"|"no" ) break;;
+		esac
+	done
+fi
+case $LINUX_HOME_CONFIG_AUTOSYNC in
+	"Yes"|"yes" ) addAutoSync;
+esac
 
 echo
 
@@ -278,15 +291,20 @@ fi
 
 echo
 
-echo "Do you like Tux?"
-select yn in "Yes" "No" "Cancel"; do
-	case $yn in
-		Yes ) echo ':)'; break;;
-		No ) removeGreeting; echo ':('; break;;
-	Cancel ) exit;;
-	esac
-done
+if [ -z "$LINUX_HOME_CONFIG_TUX" ]
+then
+	echo "Do you like Tux?"
+	select LINUX_HOME_CONFIG_TUX in "Yes" "No"; do
+		case $LINUX_HOME_CONFIG_TUX in
+			"Yes"|"yes"|"No"|"no" ) break;;
+		esac
+	done
+fi
+case $yn in
+	Yes ) echo ':)';;
+	No ) removeGreeting; echo ':(';;
+esac
 
-chmod -R o-rwx ${HOME}/${home_path}/
+chmod -R o-rwx,g-rwx ${HOME}/${home_path}/
 
 rm "$tempfile"
