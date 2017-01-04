@@ -3,7 +3,7 @@
 ## Dependences
 * bash
 * tar
-* wget or curl
+* curl or wget
 
 ## Installation
 ### curl
