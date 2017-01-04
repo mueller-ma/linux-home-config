@@ -125,11 +125,15 @@ if ! shopt -oq posix; then
 fi
 
 # logout after 10 minutes
-TMOUT="$(( 10*60 ))";
-[ -z "$DISPLAY" ] && [ -z "$SSH_TTY" ] && export TMOUT;
-case $( /usr/bin/tty ) in
+timeout=false
+if [ "$timeout" = "true" ]
+then
+	TMOUT="$(( 10*60 ))";
+	[ -z "$DISPLAY" ] && [ -z "$SSH_TTY" ] && export TMOUT;
+	case $( /usr/bin/tty ) in
 	/dev/tty[0-9]*) export TMOUT;;
-esac
+	esac
+fi
 
 # If cowsay and fortunes is installed tux will quote Star Trek when starting bash
 greeting=true
