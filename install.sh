@@ -266,8 +266,8 @@ then
 		echo -e "\n# Use rVIM instead of VI\nalias vi='rvim'" >> ${HOME}/${home_path}/persistent/A.bash_aliases
 		echo -e "\n# Use rVIM instead of VIM\nalias vim='rvim'" >> ${HOME}/.bash_aliases
 		echo -e "\n# Use rVIM instead of VIM\nalias vim='rvim'" >> ${HOME}/${home_path}/persistent/A.bash_aliases
-		echo -e "\n# Use vimrc.lite\nalias rvim='rvim -u ~/.vimrc.lite'" >> ${HOME}/.bash_aliases
-		echo -e "\n# Use vimrc.lite\nalias rvim='rvim -u ~/.vimrc.lite'" >> ${HOME}/${home_path}/persistent/A.bash_aliases
+		echo -e "\n# Use vimrc.lite\nalias rvim='rvim -p -u ~/.vimrc.lite'" >> ${HOME}/.bash_aliases
+		echo -e "\n# Use vimrc.lite\nalias rvim='rvim -p -u ~/.vimrc.lite'" >> ${HOME}/${home_path}/persistent/A.bash_aliases
 	else
 		echo "Your editor is vim"
 		echo -e "\n# Use VIM instead of VI\nalias vi='vim'" >> ${HOME}/.bash_aliases
