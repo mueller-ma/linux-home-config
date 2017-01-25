@@ -22,3 +22,7 @@ function grep() {
         command grep "$@"
     fi
 }
+
+function search-in-file() {
+	find . -type f -exec grep -q "$@" {} \; -printf '%h/%f\n'
+}
