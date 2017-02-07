@@ -42,8 +42,8 @@ function downloadAll {
 cd "${HOME}"
 source "$configfile"
 
-URL_NO_HTTP=${URL#http*://}
-URL_NO_HTTP_AND_PATH=${URL_NO_HTTP%%/*}
+#URL_NO_HTTP=${URL#http*://}
+#URL_NO_HTTP_AND_PATH=${URL_NO_HTTP%%/*}
 #ping -c1 $URL_NO_HTTP_AND_PATH 2>&1 >/dev/null || exit 1
 
 mkdir -p ${home_path}/old-config-files
