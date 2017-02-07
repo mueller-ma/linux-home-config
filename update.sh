@@ -31,6 +31,7 @@ function downloadAll {
 	cd ..
 	cp install.sh ${HOME}/${home_path}/install.sh
 	cp update.sh ${HOME}/${home_path}/update.sh
+	cp start-update.sh ${HOME}/${home_path}/start-update.sh
 	# remove tar ball
 	rm ../master.tar.gz
 	# Generate vimrc and vimrc.lite
