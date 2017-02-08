@@ -262,12 +262,10 @@ then
 	if [ "$UID" -eq 0 ]
 	then
 		echo "Your editor is rvim"
-		echo -e "\n# Use rVIM instead of VI\nalias vi='rvim'" >> ${HOME}/.bash_aliases
-		echo -e "\n# Use rVIM instead of VI\nalias vi='rvim'" >> ${HOME}/${home_path}/persistent/A.bash_aliases
-		echo -e "\n# Use rVIM instead of VIM\nalias vim='rvim'" >> ${HOME}/.bash_aliases
-		echo -e "\n# Use rVIM instead of VIM\nalias vim='rvim'" >> ${HOME}/${home_path}/persistent/A.bash_aliases
-		echo -e "\n# Use vimrc.lite\nalias rvim='rvim -p -u ~/.vimrc.lite'" >> ${HOME}/.bash_aliases
-		echo -e "\n# Use vimrc.lite\nalias rvim='rvim -p -u ~/.vimrc.lite'" >> ${HOME}/${home_path}/persistent/A.bash_aliases
+		echo -e "\n# Use rVIM instead of VI\nalias vi='rvim -p -u ~/.vimrc.lite'" >> ${HOME}/.bash_aliases
+		echo -e "\n# Use rVIM instead of VI\nalias vi='rvim -p -u ~/.vimrc.lite'" >> ${HOME}/${home_path}/persistent/A.bash_aliases
+		echo -e "\n# Use rVIM instead of VIM\nalias vim='rvim -p -u ~/.vimrc.lite'" >> ${HOME}/.bash_aliases
+		echo -e "\n# Use rVIM instead of VIM\nalias vim='rvim -p -u ~/.vimrc.lite'" >> ${HOME}/${home_path}/persistent/A.bash_aliases
 	else
 		echo "Your editor is vim"
 		echo -e "\n# Use VIM instead of VI\nalias vi='vim'" >> ${HOME}/.bash_aliases

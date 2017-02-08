@@ -17,9 +17,7 @@ alias l='ls -CFx'
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-# Use Vim tabs
+# Vim Aliases
 alias vim='vim -p'
-
-# Use vimrc.lite in rvim
-alias rvi='rvim'
-alias rvim='rvim -u ~/.vimrc.lite'
+alias rvi='rvim -p -u ~/.vimrc.lite'
+alias rvim='rvim -p -u ~/.vimrc.lite'
