@@ -63,6 +63,9 @@ autocmd BufNewFile,BufRead *.htm*			map <silent> <F4> :norm ^4x<esc>$xxx<esc> " 
 autocmd BufNewFile,BufRead *.css			map <silent> <F3> :norm I/*<esc>A*/<esc> " lite
 autocmd BufNewFile,BufRead *.css			map <silent> <F4> :norm ^2x<esc>$xx " lite
 
+" Toggle Paste
+set pastetoggle=<F12>
+
 " Set line numbers
 map <silent><F5> :set invnumber<CR> " lite
 
