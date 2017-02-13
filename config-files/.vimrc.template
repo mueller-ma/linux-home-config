@@ -43,6 +43,7 @@ autocmd BufNewFile,BufRead *.c				map <silent> <F3> :norm I//<CR> " lite
 autocmd BufNewFile,BufRead *.items			map <silent> <F3> :norm I//<CR> " lite
 autocmd BufNewFile,BufRead *.rules			map <silent> <F3> :norm I//<CR> " lite
 autocmd BufNewFile,BufRead *.sitemap		map <silent> <F3> :norm I//<CR> " lite
+autocmd BufNewFile,BufRead *.persist		map <silent> <F3> :norm I//<CR> " lite
 autocmd BufNewFile,BufRead *.js				map <silent> <F3> :norm I//<CR> " lite
 autocmd BufNewFile,BufRead *.ino			map <silent> <F3> :norm I//<CR> " lite
 autocmd BufNewFile,BufRead *.php			map <silent> <F3> :norm I//<CR> " lite
@@ -52,6 +53,7 @@ autocmd BufNewFile,BufRead *.c				map <silent> <F4> :norm ^2x<CR> " lite
 autocmd BufNewFile,BufRead *.items			map <silent> <F4> :norm ^2x<CR> " lite
 autocmd BufNewFile,BufRead *.rules			map <silent> <F4> :norm ^2x<CR> " lite
 autocmd BufNewFile,BufRead *.sitemap		map <silent> <F4> :norm ^2x<CR> " lite
+autocmd BufNewFile,BufRead *.persist		map <silent> <F4> :norm ^2x<CR> " lite
 autocmd BufNewFile,BufRead *.js				map <silent> <F4> :norm ^2x<CR> " lite
 autocmd BufNewFile,BufRead *.ino			map <silent> <F4> :norm ^2x<CR> " lite
 autocmd BufNewFile,BufRead *.php			map <silent> <F4> :norm ^2x<CR> " lite
