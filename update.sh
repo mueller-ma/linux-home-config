@@ -84,7 +84,5 @@ then
 	chown -R ${SUDO_USER}: ${HOME}/${home_path}/
 fi
 
-source  ~/.bash{rc,_aliases,_functions}
-
 rm $tempfile
 exit

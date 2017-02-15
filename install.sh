@@ -305,6 +305,4 @@ esac
 
 chmod -R o-rwx,g-rwx ${HOME}/${home_path}/
 
-source  ~/.bash{rc,_aliases,_functions}
-
 rm "$tempfile"
