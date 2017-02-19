@@ -44,6 +44,7 @@ autocmd BufNewFile,BufRead *.items			map <silent> <F3> :norm I//<CR> " lite
 autocmd BufNewFile,BufRead *.rules			map <silent> <F3> :norm I//<CR> " lite
 autocmd BufNewFile,BufRead *.sitemap		map <silent> <F3> :norm I//<CR> " lite
 autocmd BufNewFile,BufRead *.persist		map <silent> <F3> :norm I//<CR> " lite
+autocmd BufNewFile,BufRead *.things			map <silent> <F3> :norm I//<CR> " lite
 autocmd BufNewFile,BufRead *.js				map <silent> <F3> :norm I//<CR> " lite
 autocmd BufNewFile,BufRead *.ino			map <silent> <F3> :norm I//<CR> " lite
 autocmd BufNewFile,BufRead *.php			map <silent> <F3> :norm I//<CR> " lite
@@ -54,6 +55,7 @@ autocmd BufNewFile,BufRead *.items			map <silent> <F4> :norm ^2x<CR> " lite
 autocmd BufNewFile,BufRead *.rules			map <silent> <F4> :norm ^2x<CR> " lite
 autocmd BufNewFile,BufRead *.sitemap		map <silent> <F4> :norm ^2x<CR> " lite
 autocmd BufNewFile,BufRead *.persist		map <silent> <F4> :norm ^2x<CR> " lite
+autocmd BufNewFile,BufRead *.things			map <silent> <F4> :norm ^2x<CR> " lite
 autocmd BufNewFile,BufRead *.js				map <silent> <F4> :norm ^2x<CR> " lite
 autocmd BufNewFile,BufRead *.ino			map <silent> <F4> :norm ^2x<CR> " lite
 autocmd BufNewFile,BufRead *.php			map <silent> <F4> :norm ^2x<CR> " lite
@@ -96,8 +98,13 @@ noremap V v " lite
 " Ignore case of Q and W in command mode
 command Q q " lite
 command W w " lite
-command WQ wq " lite
 command Wq wq " lite
+command WQ wq " lite
+command Qa qa " lite
+command Wa wa " lite
+command Wqa wqa " lite
+command WQa wqa " lite
+command WQA wqa " lite
 
 " Disable Ex Mode
 nnoremap Q <Nop> " lite
