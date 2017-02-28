@@ -4,9 +4,6 @@
 [submodule "config-files/.vim/bundle/vim-airline-themes"]
 	path = config-files/.vim/bundle/vim-airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes
-[submodule "config-files/.vim/bundle/gnuplot.vim"]
-	path = config-files/.vim/bundle/gnuplot.vim
-	url = https://github.com/uemurax/gnuplot.vim
 [submodule "config-files/.vim/bundle/openhab-vim"]
 	path = config-files/.vim/bundle/openhab-vim
 	url = https://github.com/cyberkov/openhab-vim
