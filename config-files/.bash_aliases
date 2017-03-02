@@ -21,3 +21,5 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 alias vim='vim -p'
 alias rvi='rvim -p -u ~/.vimrc.lite'
 alias rvim='rvim -p -u ~/.vimrc.lite'
+
+alias show-large-files='du -sh * | sort -rh | head -n 15'
