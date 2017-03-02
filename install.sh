@@ -109,7 +109,7 @@ function installRecommendation {
 
 		pkgManCMD
 		DB_UPDATED=0
-		for cmd in "$VIM_PKG_NAME" tree
+		for cmd in "$VIM_PKG_NAME" tree curl wget screen
 		do
 			command -v "$cmd" >/dev/null 2>&1
 			if [ "$?" -ne 0 ]
