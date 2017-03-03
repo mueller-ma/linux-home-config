@@ -85,7 +85,7 @@ then
 	chown -R ${SUDO_USER}: ${HOME}/${home_path}/
 fi
 
-rm -r ~/.vim/bundle{gnuplot.vim,vim-fugitive}
+rm -r ~/.vim/bundle/{gnuplot.vim,vim-fugitive}
 
 
 rm $tempfile
