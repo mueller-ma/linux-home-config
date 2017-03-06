@@ -23,3 +23,5 @@ alias rvi='rvim -p -u ~/.vimrc.lite'
 alias rvim='rvim -p -u ~/.vimrc.lite'
 
 alias show-large-files='du -sh * | sort -rh | head -n 15'
+
+alias short-ps1='PS1="\[\033[01;36m\]\w\[\033[00m\]\$ "'
