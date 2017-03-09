@@ -25,3 +25,10 @@ alias rvim='rvim -p -u ~/.vimrc.lite'
 alias show-large-files='du -sh * | sort -rh | head -n 15'
 
 alias short-ps1='PS1="\[\033[01;36m\]\w\[\033[00m\]\$ "'
+
+if [ "$UID" -eq 0 ]
+then
+	alias long-ps1='PS1="\[\033[0;31m\][\u@\h \w]\[\033[00m\]\$ "'
+else
+	alias long-ps1='PS1="[\u@\h \[\033[01;36m\]\w\[\033[00m\]]\$ "'
+fi
