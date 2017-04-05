@@ -24,5 +24,5 @@ function grep() {
 }
 
 function search-in-file() {
-	find . -type f -exec grep -q "$@" {} \; -printf '%h/%f\n'
+	find . -type f -exec grep -i -q "$@" {} \; -printf '%h/%f\n'
 }
