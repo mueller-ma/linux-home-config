@@ -30,7 +30,6 @@ function search-in-file() {
 if [ ! -f /usr/share/bash-completion/completions/apt ]
 then
 	# Debian apt(8) completion                             -*- shell-script -*-
-	echo "source apt bash-completion"
 
 	_apt()
 	{
