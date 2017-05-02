@@ -127,3 +127,14 @@ then
 	} &&
 	complete -F _apt apt
 fi
+
+function bak () {
+	date=$(date +%Y-%m-%d---%H-%M-%S-%N)
+	for i in $@
+	do
+		if ! [ $(echo $i | grep -E '\.bak-20..-..-..---..-..-..-.........') ]
+		then
+			cp -r "$i" "${i}.bak-${date}"
+		fi
+	done
+}
