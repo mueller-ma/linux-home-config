@@ -3,7 +3,7 @@
 
 # This file is sourced by .bashrc
 
-# some cd commands
+# Some cd commands
 function -() { cd -; }
 function --() { cd --; }
 
@@ -14,7 +14,7 @@ function .....() { cd ../../../..; }
 function ......() { cd ../../../../..; }
 function .......() { cd ../../../../../..; }
 
-# show line numbers except in pipelines
+# Show line numbers except in pipelines
 function grep() { 
     if [ -t 1 ] && [ -t 0 ]; then 
         command grep -n "$@"
@@ -23,6 +23,7 @@ function grep() {
     fi
 }
 
+# Search a string in files
 function search-in-file() {
 	find . -type f -exec grep -i -q "$@" {} \; -printf '%h/%f\n'
 }
@@ -128,6 +129,7 @@ then
 	complete -F _apt apt
 fi
 
+# Make a backup of the given files
 function bak () {
 	date=$(date +%Y-%m-%d---%H-%M-%S-%N)
 	for i in $@
@@ -138,3 +140,7 @@ function bak () {
 		fi
 	done
 }
+
+# Shortcuts for find
+ff () { find . -name "$@" ; }      # ff:       Find file under the current directory
+ffs () { find . -name "$@"'*' ; }  # ffs:      Find file whose name starts with a given string
