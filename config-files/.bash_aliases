@@ -41,6 +41,8 @@ else
 fi
 
 # Git diff
+alias gita='git add .'
+alias gitc='git commit -m'
 alias gitd='git diff --staged'
 
 # type
