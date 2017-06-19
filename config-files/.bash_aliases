@@ -22,9 +22,16 @@ alias vim='vim -p'
 alias rvi='rvim -p -u ~/.vimrc.lite'
 alias rvim='rvim -p -u ~/.vimrc.lite'
 
+# Show the 15 largest files/folder in the current directory
 alias show-large-files='du -sh * 2>/dev/null | sort -rh | head -n 15'
 
-alias short-ps1='PS1="\[\033[01;36m\]\w\[\033[00m\]\$ "'
+# Short ps1
+if [ "$UID" -eq 0 ]
+then
+	alias short-ps1='PS1="\[\033[0;31m\]\w\[\033[00m\]\$ "'
+else
+	alias short-ps1='PS1="\[\033[01;36m\]\w\[\033[00m\]\$ "'
+fi
 
 if [ "$UID" -eq 0 ]
 then
@@ -32,3 +39,6 @@ then
 else
 	alias long-ps1='PS1="[\u@\h \[\033[01;36m\]\w\[\033[00m\]]\$ "'
 fi
+
+# Git diff
+alias gitd='git diff --staged'
