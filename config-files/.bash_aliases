@@ -42,3 +42,6 @@ fi
 
 # Git diff
 alias gitd='git diff --staged'
+
+# type
+alias type='type -a'
