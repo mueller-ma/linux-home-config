@@ -14,3 +14,8 @@
 
 ## TODO
 See Issues
+
+## Recourses
+ - [https://natelandau.com/my-mac-osx-bash_profile](https://natelandau.com/my-mac-osx-bash_profile)
+ - [https://stackoverflow.com/questions/164847/what-is-in-your-vimrc](https://stackoverflow.com/questions/164847/what-is-in-your-vimrc)
+ - [https://stackoverflow.com/questions/1218390/what-is-your-most-productive-shortcut-with-vim](https://stackoverflow.com/questions/1218390/what-is-your-most-productive-shortcut-with-vim)
