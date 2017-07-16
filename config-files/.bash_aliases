@@ -46,6 +46,7 @@ alias gitc='git commit -m'
 alias gitd='git diff --staged'
 alias gits='git status'
 alias gitr='git reset'
+alias gitad='git add . && git diff --staged'
 
 # type
 alias type='type -a'
