@@ -50,3 +50,6 @@ alias gitad='git add . && git diff --staged'
 
 # type
 alias type='type -a'
+
+# df
+alias df='df -h'
