@@ -141,9 +141,8 @@ function bak () {
 	done
 }
 
-# Shortcuts for find
-ff () { find . -name "$@" ; }      # ff:       Find file under the current directory
-ffs () { find . -name "$@"'*' ; }  # ffs:      Find file whose name starts with a given string
+# Shortcut for find
+ff () { find . -name '*'"$@"'*' ; }
 
 # Extract file (https://gist.github.com/natelandau/10654137#file-bash_profile-L124)
 xtract () {

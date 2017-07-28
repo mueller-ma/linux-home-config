@@ -13,19 +13,21 @@ case $- in
 	*) return;;
 esac
 
-# don't put duplicate lines or lines starting with space in the history.
+# Don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
 
-# append to the history file, don't overwrite it
+# Append to the history file, don't overwrite it
 shopt -s histappend
 
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+# For setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=10000
 HISTFILESIZE=20000
+
+# Show time in history file
 HISTTIMEFORMAT='%F %T '
 
-# check the window size after each command and, if necessary,
+# Check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
@@ -33,20 +35,20 @@ shopt -s checkwinsize
 # match all files and zero or more directories and subdirectories.
 shopt -s globstar
 
-# make less more friendly for non-text input files, see lesspipe(1)
+# Make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# set variable identifying the chroot you work in (used in the prompt below)
+# Set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
 	debian_chroot=$(cat /etc/debian_chroot)
 fi
 
-# set a fancy prompt (non-color, unless we know we "want" color)
+# Set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
 	xterm-color) color_prompt=yes;;
 esac
 
-# uncomment for a colored prompt, if the terminal has the capability; turned
+# Uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
 force_color_prompt=yes
@@ -83,7 +85,7 @@ unset color_prompt force_color_prompt
 	#;;
 #esac
 
-# enable color support of ls and also add handy aliases
+# Enable color support of ls
 if [ -x /usr/bin/dircolors ]; then
 	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 	alias ls='ls --color=auto'
@@ -95,7 +97,7 @@ if [ -x /usr/bin/dircolors ]; then
 	alias egrep='egrep --color=auto'
 fi
 
-# colored GCC warnings and errors
+# Colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # Alias definitions.
@@ -107,13 +109,13 @@ if [ -f ~/.bash_aliases ]; then
 	. ~/.bash_aliases
 fi
 
-# Bash functions in sepqrate file
+# Bash functions in seperate file
 
 if [ -f ~/.bash_functions ]; then
 	. ~/.bash_functions
 fi
 
-# enable programmable completion features (you don't need to enable
+# Enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
 if ! shopt -oq posix; then
@@ -124,7 +126,7 @@ if ! shopt -oq posix; then
 	fi
 fi
 
-# logout after 10 minutes
+# Logout after 10 minutes
 timeout=false
 if [ "$timeout" = "true" ]
 then
@@ -152,11 +154,10 @@ then
 		echo "Hi $USER" | cowsay -f tux
 	elif [ "$fortune" = "true" ]
 	then
-		#[ -n "$SSH_TTY" ] && echo -e '\n\n'
 		fortune startrek
 	fi
 	unset fortune cowsay
 fi
 
-# rvim as root editor
+# Rvim as root editor
 export SUDO_EDITOR=rvim
