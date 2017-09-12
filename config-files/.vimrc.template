@@ -66,9 +66,6 @@ map <F12> :set invpaste<CR> " lite
 " Set line numbers
 map <silent><F5> :set invnumber<CR> " lite
 
-" Capitalize first letter of a word
-nmap <F6> m`b~`` " lite
-
 " Change between tabs with F7 and F8
 map <silent><F7> :tabp<CR> " lite
 map <silent><F8> :tabn<CR> " lite
@@ -79,10 +76,6 @@ noremap <F2> :<C-U>setlocal lcs=tab:>-,trail:-,eol:$ list! list? <CR> " lite
 " Map leader key to ","
 let mapleader = "," " lite
 let g:mapleader = "," " lite
-
-" Better pasting
-"noremap P ]P
-"noremap p ]p
 
 " Switch v and V
 noremap v V " lite
@@ -222,16 +215,6 @@ if !exists(":DiffOrig")
 	command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis | wincmd p | diffthis
 endif
 
-" Switch tabs more easy
-nnoremap <C-h> <C-w>h " lite
-nnoremap <C-j> <C-w>j " lite
-nnoremap <C-k> <C-w>k " lite
-nnoremap <C-l> <C-w>l " lite
-
-" New and untested stuff
-
-"let g:clipbrdDefaultReg = '+'
-
 " Status line (vim-airline)
 set laststatus=2
 " Disable default mode indicator
@@ -247,6 +230,7 @@ set noshowmode
 "tabfirst
 "" or 'norm! zMzr'
 "endfunction"
+"let g:clipbrdDefaultReg = '+'
 "
 "nnoremap <silent> <Leader>todo :execute TodoListMode()<CR>
 
