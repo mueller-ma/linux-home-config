@@ -169,7 +169,7 @@ set formatprg=astyle\ -T4p " lite
 " Replace space with tab
 map <F11> gg=G<CR> :set tabstop=4<CR> :%retab!<CR> :set tabstop=2<CR> :%retab!<CR> :set tabstop=4<CR> " lite
 " Replace tab with space
-map <silent> <F12> :set expandtab<CR>:retab<CR>
+map <silent> <F12> :set expandtab<CR>:retab<CR> " lite
 
 " Restore cursor
 augroup JumpCursorOnEdit
