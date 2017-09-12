@@ -25,120 +25,120 @@ function grep() {
 
 # Search a string in files
 function search-in-file() {
-	find . -type f -exec grep -i -q "$@" {} \; -printf '%h/%f\n'
+    find . -type f -exec grep -i -q "$@" {} \; -printf '%h/%f\n'
 }
 
 if [ ! -f /usr/share/bash-completion/completions/apt ]
 then
-	# Debian apt(8) completion                             -*- shell-script -*-
+    # Debian apt(8) completion                             -*- shell-script -*-
 
-	_apt()
-	{
-		local sourcesdir="/etc/apt/sources.list.d"
-		local cur prev words cword
-		_init_completion || return
+    _apt()
+    {
+        local sourcesdir="/etc/apt/sources.list.d"
+        local cur prev words cword
+        _init_completion || return
 
-		# see if the user selected a command already
-		local COMMANDS=("install" "remove" "purge" "show" "list"
-						"update" "upgrade" "full-upgrade" "dist-upgrade"
-						"edit-sources" "help" "search")
+        # see if the user selected a command already
+        local COMMANDS=("install" "remove" "purge" "show" "list"
+                        "update" "upgrade" "full-upgrade" "dist-upgrade"
+                        "edit-sources" "help" "search")
 
-		local command i
-		for (( i=0; i < ${#words[@]}-1; i++ )); do
-			if [[ ${COMMANDS[@]} =~ ${words[i]} ]]; then
-				command=${words[i]}
-				break
-			fi
-		done
+        local command i
+        for (( i=0; i < ${#words[@]}-1; i++ )); do
+            if [[ ${COMMANDS[@]} =~ ${words[i]} ]]; then
+                command=${words[i]}
+                break
+            fi
+        done
 
-		# supported options per command
-		if [[ "$cur" == -* ]]; then
-			case $command in
-				install|remove|purge|upgrade|full-upgrade)
-					COMPREPLY=( $( compgen -W '--show-progress
-					--fix-broken --purge --verbose-versions --auto-remove
-					--simulate --dry-run
-					--download
-					--fix-missing
-					--fix-policy
-					--ignore-hold
-					--force-yes
-					--trivial-only
-					--reinstall --solver' -- "$cur" ) )
-					return 0
-					;;
-				update)
-					COMPREPLY=( $( compgen -W '--list-cleanup 
-					' -- "$cur" ) )
-					return 0
-					;;
-				list)
-					COMPREPLY=( $( compgen -W '--installed --upgradable 
-					--manual-installed
-					-v --verbose
-					-a --all-versions
-					' -- "$cur" ) )
-					return 0
-					;;
-				show)
-					COMPREPLY=( $( compgen -W '-a --all-versions
-					' -- "$cur" ) )
-					return 0
-					;;
-				search)
-					COMPREPLY=( $( compgen -W '-a' -- "$cur" ) )
-					return 0
-					;;
-			esac
-		fi
+        # supported options per command
+        if [[ "$cur" == -* ]]; then
+            case $command in
+                install|remove|purge|upgrade|full-upgrade)
+                    COMPREPLY=( $( compgen -W '--show-progress
+                    --fix-broken --purge --verbose-versions --auto-remove
+                    --simulate --dry-run
+                    --download
+                    --fix-missing
+                    --fix-policy
+                    --ignore-hold
+                    --force-yes
+                    --trivial-only
+                    --reinstall --solver' -- "$cur" ) )
+                    return 0
+                    ;;
+                update)
+                    COMPREPLY=( $( compgen -W '--list-cleanup
+                    ' -- "$cur" ) )
+                    return 0
+                    ;;
+                list)
+                    COMPREPLY=( $( compgen -W '--installed --upgradable
+                    --manual-installed
+                    -v --verbose
+                    -a --all-versions
+                    ' -- "$cur" ) )
+                    return 0
+                    ;;
+                show)
+                    COMPREPLY=( $( compgen -W '-a --all-versions
+                    ' -- "$cur" ) )
+                    return 0
+                    ;;
+                search)
+                    COMPREPLY=( $( compgen -W '-a' -- "$cur" ) )
+                    return 0
+                    ;;
+            esac
+        fi
 
-		# specific command arguments
-		if [[ -n $command ]]; then
-			case $command in
-				remove|purge)
-					if [[ -f /etc/debian_version ]]; then
-						# Debian system
-						COMPREPLY=( $( \
-							_xfunc dpkg _comp_dpkg_installed_packages $cur ) )
-					else
-						# assume RPM based
-						_xfunc rpm _rpm_installed_packages
-					fi
-					return 0
-					;;
-				install|show|list|search)
-					COMPREPLY=( $( apt-cache --no-generate pkgnames "$cur" \
-						2> /dev/null ) )
-					return 0
-					;;
-				edit-sources)
-					COMPREPLY=( $( compgen -W '$( command ls $sourcesdir )' \
-						-- "$cur" ) )
-					return 0
-					;;
-			esac
-		fi
+        # specific command arguments
+        if [[ -n $command ]]; then
+            case $command in
+                remove|purge)
+                    if [[ -f /etc/debian_version ]]; then
+                        # Debian system
+                        COMPREPLY=( $( \
+                            _xfunc dpkg _comp_dpkg_installed_packages $cur ) )
+                    else
+                        # assume RPM based
+                        _xfunc rpm _rpm_installed_packages
+                    fi
+                    return 0
+                    ;;
+                install|show|list|search)
+                    COMPREPLY=( $( apt-cache --no-generate pkgnames "$cur" \
+                        2> /dev/null ) )
+                    return 0
+                    ;;
+                edit-sources)
+                    COMPREPLY=( $( compgen -W '$( command ls $sourcesdir )' \
+                        -- "$cur" ) )
+                    return 0
+                    ;;
+            esac
+        fi
 
-		# no command yet, show what commands we have
-		if [ "$command" = "" ]; then
-			COMPREPLY=( $( compgen -W '${COMMANDS[@]}' -- "$cur" ) )
-		fi
+        # no command yet, show what commands we have
+        if [ "$command" = "" ]; then
+            COMPREPLY=( $( compgen -W '${COMMANDS[@]}' -- "$cur" ) )
+        fi
 
-		return 0
-	} &&
-	complete -F _apt apt
+        return 0
+    } &&
+    complete -F _apt apt
 fi
 
 # Make a backup of the given files
 function bak () {
-	date=$(date +%Y-%m-%d---%H-%M-%S-%N)
-	for i in $@
-	do
-		if ! [ $(echo $i | grep -E '\.bak-20..-..-..---..-..-..-.........') ]
-		then
-			cp -r "$i" "${i}.bak-${date}"
-		fi
-	done
+    date=$(date +%Y-%m-%d---%H-%M-%S-%N)
+    for i in $@
+    do
+        if ! [ $(echo $i | grep -E '\.bak-20..-..-..---..-..-..-.........') ]
+        then
+            cp -r "$i" "${i}.bak-${date}"
+        fi
+    done
 }
 
 # Shortcut for find
@@ -146,24 +146,24 @@ ff () { find . -name '*'"$@"'*' ; }
 
 # Extract file (https://gist.github.com/natelandau/10654137#file-bash_profile-L124)
 xtract () {
-	if [ -f $1 ]
-	then
-		case $1 in
-		*.tar.bz2)   tar xvjf $1     ;;
-		*.tar.gz)    tar xvzf $1     ;;
-		*.tar.xz)    tar xvJf $1     ;;
-		*.bz2)       bunzip2 $1     ;;
-		*.rar)       unrar e $1     ;;
-		*.gz)        gunzip $1      ;;
-		*.tar)       tar xvf $1      ;;
-		*.tbz2)      tar xvjf $1     ;;
-		*.tgz)       tar xvzf $1     ;;
-		*.zip)       unzip $1       ;;
-		*.Z)         uncompress $1  ;;
-		*.7z)        7z x $1        ;;
-		*)     echo "'$1' cannot be extracted via xtract()" ;;
-		esac
-	else
-		echo "'$1' is not a valid file"
-	fi
+    if [ -f $1 ]
+    then
+        case $1 in
+        *.tar.bz2)   tar xvjf $1     ;;
+        *.tar.gz)    tar xvzf $1     ;;
+        *.tar.xz)    tar xvJf $1     ;;
+        *.bz2)       bunzip2 $1     ;;
+        *.rar)       unrar e $1     ;;
+        *.gz)        gunzip $1      ;;
+        *.tar)       tar xvf $1      ;;
+        *.tbz2)      tar xvjf $1     ;;
+        *.tgz)       tar xvzf $1     ;;
+        *.zip)       unzip $1       ;;
+        *.Z)         uncompress $1  ;;
+        *.7z)        7z x $1        ;;
+        *)     echo "'$1' cannot be extracted via xtract()" ;;
+        esac
+    else
+        echo "'$1' is not a valid file"
+    fi
 }

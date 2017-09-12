@@ -2,7 +2,7 @@
 # To make permanent changes (e. g. in .bashrc), create the file "A.bashrc" in ~/.linux_home_config/persistent/ and run ~/.linux_home_config/update.sh
 
 [user]
-	name = mueller-ma
-	email = mueller-ma@users.noreply.github.com
+    name = mueller-ma
+    email = mueller-ma@users.noreply.github.com
 [push]
-	default = simple
+    default = simple

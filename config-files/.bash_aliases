@@ -8,9 +8,9 @@
 ls --version 2>/dev/null | grep -q "GNU"
 if [ $? -eq 0 ]
 then
-	alias ll='ls -lAhF --group-directories-first --time-style="+%H:%M %d.%m.%Y"'
+    alias ll='ls -lAhF --group-directories-first --time-style="+%H:%M %d.%m.%Y"'
 else
-	alias ll='ls -lAhF'
+    alias ll='ls -lAhF'
 fi
 alias la='ls -A'
 alias l='ls -CFx'
@@ -30,16 +30,16 @@ alias show-large-files='du -sh * 2>/dev/null | sort -rh | head -n 15'
 # Switch between long and short $PS1
 if [ "$UID" -eq 0 ]
 then
-	alias short-ps1='PS1="\[\033[0;31m\]\w\[\033[00m\]\$ "'
+    alias short-ps1='PS1="\[\033[0;31m\]\w\[\033[00m\]\$ "'
 else
-	alias short-ps1='PS1="\[\033[01;36m\]\w\[\033[00m\]\$ "'
+    alias short-ps1='PS1="\[\033[01;36m\]\w\[\033[00m\]\$ "'
 fi
 
 if [ "$UID" -eq 0 ]
 then
-	alias long-ps1='PS1="\[\033[0;31m\][\u@\h \w]\[\033[00m\]\$ "'
+    alias long-ps1='PS1="\[\033[0;31m\][\u@\h \w]\[\033[00m\]\$ "'
 else
-	alias long-ps1='PS1="[\u@\h \[\033[01;36m\]\w\[\033[00m\]]\$ "'
+    alias long-ps1='PS1="[\u@\h \[\033[01;36m\]\w\[\033[00m\]]\$ "'
 fi
 
 # Git aliases
