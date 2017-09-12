@@ -21,13 +21,6 @@ set background=dark " lite
 " Vim airline theme
 let g:airline_theme='ubaryd'
 
-" Text formatting
-map <silent> <F9> gg=G<CR> " lite
-map <silent> <F10> gggqG<CR> " lite
-map <F11> gg=G<CR> :set tabstop=4<CR> :%retab!<CR> :set tabstop=2<CR> :%retab!<CR> :set tabstop=4<CR> " lite
-set formatprg=astyle\ -T4p " lite
-"autocmd BufNewFile,BufRead *.cpp set formatprg=astyle\ -T4p
-
 " Comment with F3 and uncomment with F4
 " Default
 map <silent> <F3> :norm I#<CR> " lite
@@ -166,6 +159,17 @@ set tabstop=4 " lite
 set shiftwidth=4 " lite
 set shiftround " lite
 set noexpandtab " lite
+
+" Text formatting
+" Bultin
+map <silent> <F9> gg=G<CR> " lite
+" Astyle, must be installed
+map <silent> <F10> gggqG<CR> " lite
+set formatprg=astyle\ -T4p " lite
+" Replace space with tab
+map <F11> gg=G<CR> :set tabstop=4<CR> :%retab!<CR> :set tabstop=2<CR> :%retab!<CR> :set tabstop=4<CR> " lite
+" Replace tab with space
+map <silent> <F12> :set expandtab<CR>:retab<CR>
 
 " Restore cursor
 augroup JumpCursorOnEdit
