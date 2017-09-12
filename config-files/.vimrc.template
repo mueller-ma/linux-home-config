@@ -151,7 +151,7 @@ set smartindent " lite
 set tabstop=4 " lite
 set shiftwidth=4 " lite
 set shiftround " lite
-set noexpandtab " lite
+set expandtab " lite
 
 " Text formatting
 " Bultin
