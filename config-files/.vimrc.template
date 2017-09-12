@@ -61,7 +61,7 @@ autocmd BufNewFile,BufRead *.css			map <silent> <F3> :norm I/*<esc>A*/<esc> " li
 autocmd BufNewFile,BufRead *.css			map <silent> <F4> :norm ^2x<esc>$xx " lite
 
 " Toggle Paste
-map <F12> :set invpaste<CR> " lite
+map <F6> :set invpaste<CR> " lite
 
 " Set line numbers
 map <silent><F5> :set invnumber<CR> " lite
