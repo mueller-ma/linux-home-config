@@ -28,6 +28,11 @@ function search-in-file() {
     find . -type f -exec grep -i -q "$@" {} \; -printf '%h/%f\n'
 }
 
+# Completion for git alias
+_gitc_options='"debug" "foo" "Translate to German" "Fix typo"'
+complete -W "${_gitc_options}" gitc
+
+
 if [ ! -f /usr/share/bash-completion/completions/apt ]
 then
     # Debian apt(8) completion                             -*- shell-script -*-
