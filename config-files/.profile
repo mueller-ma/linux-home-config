@@ -26,3 +26,11 @@ if [ -d "$HOME/bin" ]
 then
     PATH="$HOME/bin:$PATH"
 fi
+
+running_screen=$(screen -ls)
+if [ "$?" -eq 0 ]
+then
+    echo "$screen" | grep -v '/var/run/screen'
+    echo
+fi
+unset running_screen
