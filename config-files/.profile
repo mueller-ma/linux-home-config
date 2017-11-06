@@ -27,10 +27,13 @@ then
     PATH="$HOME/bin:$PATH"
 fi
 
-running_screen=$(screen -ls)
-if [ "$?" -eq 0 ]
+if command -v screen >/dev/null 2>&1
 then
-    echo "$screen" | grep -v '/var/run/screen'
-    echo
+    running_screen=$(screen -ls)
+    if [[ ! "$running_screen" =~ "No Sockets found in" ]]
+    then
+        echo
+        echo "$running_screen" | grep -v '/var/run/screen'
+    fi
+    unset running_screen
 fi
-unset running_screen
