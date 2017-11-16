@@ -172,3 +172,31 @@ xtract () {
         echo "'$1' is not a valid file"
     fi
 }
+
+# Git shortcuts
+# Clone github/gitlab like repo and add my fork as remote via https and ssh
+# Expect $1 to be repo url
+gitclone () {
+    giturl=$1
+    githost=$(echo $giturl | cut -d '/' -f 3)
+    gituser=$(echo $giturl | cut -d '/' -f 4)
+    gitrepo=$(echo $giturl | cut -d '/' -f 5)
+
+    git clone $giturl
+    cd $gitrepo
+    git remote add my "https://${githost}/mueller-ma/${gitrepo}"
+    git fetch my
+    git remote add ssh "git@${githost}:mueller-ma/${gitrepo}"
+    git fetch ssh
+}
+
+# Add remote repo and fetches
+# Expect $1 to be github/gitlab user name
+gitremoteadd () {
+    gituser=$1
+    gitorig=$(git remote show origin | grep 'Fetch URL:' | awk '{ print $3 }')
+    githost=$(echo $gitorig | cut -d '/' -f 3)
+    gitrepo=$(echo $gitorig | cut -d '/' -f 5)
+    git remote add ${gituser} "https://${githost}/${gituser}/${gitrepo}"
+    git fetch ${gituser}
+}
