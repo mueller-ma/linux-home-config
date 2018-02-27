@@ -6,8 +6,8 @@ tempfile="${HOME}/${home_path}/temp"
 configfile="${HOME}/${home_path}/config"
 
 function removeGreeting {
-	sed -e 's/greeting=true/#greeting=true/' ${HOME}/.bashrc > $tempfile
-	cp $tempfile ${HOME}/.bashrc
+	sed -e 's/greeting=true/#greeting=true/' ${HOME}/.profile > "$tempfile"
+	cp $tempfile ${HOME}/.profile
 }
 
 function addAutoSync {

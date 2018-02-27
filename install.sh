@@ -90,8 +90,8 @@ function downloadGitmodules {
 
 function removeGreeting {
 	echo 'removeGreeting="true"' >> "$configfile"
-	sed -e 's/greeting=true/#greeting=true/' ${HOME}/.bashrc > "$tempfile"
-	cp $tempfile ${HOME}/.bashrc
+	sed -e 's/greeting=true/#greeting=true/' ${HOME}/.profile > "$tempfile"
+	cp $tempfile ${HOME}/.profile
 }
 
 function installRecommendation {

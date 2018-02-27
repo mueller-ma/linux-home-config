@@ -37,3 +37,25 @@ then
     fi
     unset running_screen
 fi
+
+# If cowsay and fortunes is installed tux will quote Star Trek when starting bash
+greeting=true
+if [ -n "$greeting" ] && [ ! -f ~/.hushlogin ]
+then
+    fortune startrek >/dev/null 2>&1 && fortune=true
+    cowsay -f tux foo >/dev/null 2>&1 && cowsay=true
+
+    if [ "$fortune" = "true" ] && [ "$cowsay" = "true" ]
+    then
+        echo
+        fortune startrek | cowsay -f tux
+    elif [ "$cowsay" = "true" ]
+    then
+        echo
+        echo "Hi $USER" | cowsay -f tux
+    elif [ "$fortune" = "true" ]
+    then
+        fortune startrek
+    fi
+    unset fortune cowsay
+fi
