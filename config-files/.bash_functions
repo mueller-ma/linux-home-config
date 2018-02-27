@@ -29,7 +29,7 @@ function search-in-file() {
 }
 
 # Completion for git alias
-_gitc_options='"debug" "foo" "Translate to German" "Fix typo"'
+_gitc_options='"debug" "foo" "Translate to German" "Fix typo" "Initial commit" "Implement review comments"'
 complete -W "${_gitc_options}" gitc
 
 
