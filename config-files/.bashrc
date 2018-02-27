@@ -65,18 +65,18 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 parse_git_branch() {
-     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \1/'
 }
 
 if [ "$color_prompt" = yes ]; then
     if [ "$UID" -eq 0 ]
     then
-        PS1='\[\033[0;31m\][\u@\h \w '$(parse_git_branch)']\[\033[00m\]\$ '
+        PS1='\[\033[0;31m\][\u@\h \w$(parse_git_branch)]\[\033[00m\]\$ '
     else
-        PS1='[\u@\h \[\033[01;36m\]\w\[\033[01;33m\] '$(parse_git_branch)'\[\033[00m\]]\$ '
+        PS1='[\u@\h \[\033[01;36m\]\w\[\033[01;33m\]$(parse_git_branch)\[\033[00m\]]\$ '
     fi
 else
-    PS1='[\u@\h \w]\$ '
+    PS1='[\u@\h \w$(parse_git_branch)]\$ '
 fi
 unset color_prompt force_color_prompt
 
