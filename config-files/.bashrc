@@ -71,7 +71,7 @@ parse_git_branch() {
 if [ "$color_prompt" = yes ]; then
     if [ "$UID" -eq 0 ]
     then
-        PS1='\[\033[0;31m\][\u@\h \w$(parse_git_branch)]\[\033[00m\]\$ '
+        PS1='\[\033[0;31m\][\u@\h \w\[\033[01;33m\]$(parse_git_branch)\[\033[0;31m\]]\[\033[00m\]\$ '
     else
         PS1='[\u@\h \[\033[01;36m\]\w\[\033[01;33m\]$(parse_git_branch)\[\033[00m\]]\$ '
     fi
