@@ -28,19 +28,8 @@ alias rvim='rvim -p -u ~/.vimrc.lite'
 alias show-large-files='du -sh * 2>/dev/null | sort -rh | head -n 15'
 
 # Switch between long and short $PS1
-if [ "$UID" -eq 0 ]
-then
-    alias short-ps1='PS1="\[\033[0;31m\]\w\[\033[00m\]\$ "'
-else
-    alias short-ps1='PS1="\[\033[01;36m\]\w\[\033[00m\]\$ "'
-fi
-
-if [ "$UID" -eq 0 ]
-then
-    alias long-ps1='PS1="\[\033[0;31m\][\u@\h \w]\[\033[00m\]\$ "'
-else
-    alias long-ps1='PS1="[\u@\h \[\033[01;36m\]\w\[\033[00m\]]\$ "'
-fi
+alias short-ps1='PS1="$PS1_SHORT"'
+alias long-ps1='PS1="$PS1_LONG"'
 
 # Git aliases
 alias gita='git add .'
