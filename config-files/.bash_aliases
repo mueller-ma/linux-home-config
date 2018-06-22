@@ -44,3 +44,6 @@ alias type='type -a'
 
 # DF alias
 alias df='df -h'
+
+# PS alias
+alias mps='ps auxfww'
