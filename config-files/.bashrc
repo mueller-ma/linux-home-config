@@ -144,6 +144,8 @@ then
     esac
 fi
 
+unset timeout
+
 
 # Rvim as root editor
 export SUDO_EDITOR=rvim
