@@ -53,3 +53,6 @@ if command -v "feh" >/dev/null 2>&1 && command -v "convert" >/dev/null 2>&1
 then
     alias feh='feh --magick-timeout 10'
 fi
+
+# Netstat alias
+alias netstat-tulpen='netstat -tulpen'
