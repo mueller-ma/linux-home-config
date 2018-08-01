@@ -145,6 +145,7 @@ map n nzz " lite
 
 " Clear highlight from search
 nnoremap <silent> <C-L> :noh<CR> " lite
+nnoremap <silent> <leader>l :noh<CR> " lite
 
 " Indent
 set smartindent " lite
