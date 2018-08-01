@@ -77,6 +77,11 @@ do
 	cat "$file" >> ${HOME}/${name}
 done
 
+if [ -f "${HOME}/${home_path}/persistent/script" ]
+then
+    "${HOME}/${home_path}/persistent/script"
+fi
+
 chmod -R o-rwx ${HOME}/${home_path}/
 chmod -x ${HOME}/${home_path}/update.sh
 
