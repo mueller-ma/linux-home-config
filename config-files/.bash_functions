@@ -200,3 +200,12 @@ gitremoteadd () {
     git remote add ${gituser} "https://${githost}/${gituser}/${gitrepo}"
     git fetch ${gituser}
 }
+
+# Create .ssh directory
+# `cd /home/foo && mkdirssh`
+mkdirssh () {
+    mkdir .ssh
+    touch .ssh/authorized_keys # for bash completion
+    chmod 700 .ssh
+    chown ${PWD#/home/}:${PWD#/home/} .ssh -R
+}
