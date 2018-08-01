@@ -11,7 +11,7 @@ function removeGreeting {
 }
 
 function addAutoSync {
-	echo -e '# Autoupdate of config file (e.g. this file, .bash_aliases, .vimrc)\n${HOME}/.linux-home-config/update.sh' >> ${HOME}/.bashrc
+	echo -e '# Autoupdate of config file (e.g. this file, .bash_aliases, .vimrc)\n${HOME}/.linux-home-config/start-update.sh' >> ${HOME}/.bashrc
 }
 
 function downloadAll {
