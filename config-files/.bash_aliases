@@ -47,3 +47,9 @@ alias df='df -h'
 
 # PS alias
 alias mps='ps auxfww'
+
+# Show svg files with `feh` if `convert` (supplied by ImageMagick) is installed
+if command -v "feh" >/dev/null 2>&1 && command -v "convert" >/dev/null 2>&1
+then
+    alias feh='feh --magick-timeout 10'
+fi
