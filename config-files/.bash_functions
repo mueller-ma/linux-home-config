@@ -209,3 +209,18 @@ mkdirssh () {
     chmod 700 .ssh
     chown ${PWD#/home/}:${PWD#/home/} .ssh -R
 }
+
+# Print colored status, e.g. [ OK ]
+print_status () {
+    case "$1" in
+    "OK"|"ok"|"green")
+        echo -e "[ \033[0;32m OK \033[0m ]"
+        ;;
+    "WARN"|"warn"|"WARNING"|"warning"|"yellow")
+        echo -e "[ \033[0;33mWARN\033[0m ]"
+        ;;
+    "FAILED"|"failed"|"red")
+        echo -e "[\033[0;31mFAILED\033[0m]"
+        ;;
+    esac
+}
