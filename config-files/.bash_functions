@@ -224,3 +224,33 @@ print_status () {
         ;;
     esac
 }
+
+# Process all new config files created by your package manager
+pacnew () {
+    if command -v "pacman" >/dev/null 2>&1
+    then
+        fileEnding=".pacnew"
+    elif command -v "dpkg" >/dev/null 2>&1
+    then
+        fileEnding=".pacnew" # TODO
+    fi
+
+    if [ -z "$fileEnding" ]
+    then
+        echo "No compatible package manager found!"
+        exit 1
+    fi
+
+    files=$(find /etc -name "*$fileEnding")
+
+    for file in $files
+    do
+        echo $file
+        sudo vimdiff ${file%$fileEnding} $file
+        echo
+    done
+
+    cd /etc
+    sudo git add .
+    sudo git diff --staged
+}
