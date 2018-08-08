@@ -232,7 +232,7 @@ pacnew () {
         fileEnding=".pacnew"
     elif command -v "dpkg" >/dev/null 2>&1
     then
-        fileEnding=".pacnew" # TODO
+        fileEnding=".dpkg-dist"
     fi
 
     if [ -z "$fileEnding" ]
@@ -241,7 +241,7 @@ pacnew () {
         exit 1
     fi
 
-    files=$(find /etc -name "*$fileEnding")
+    files=$(sudo find /etc -name "*$fileEnding")
 
     for file in $files
     do
