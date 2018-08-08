@@ -56,3 +56,9 @@ fi
 
 # Netstat alias
 alias netstat-tulpen='netstat -tulpen'
+
+# Remove orphaned packages
+if command -v "pacman" >/dev/null 2>&1
+then
+    alias pacman-autoremove='sudo pacman -Rns $(pacman -Qtdq)'
+fi
