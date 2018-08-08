@@ -250,7 +250,12 @@ pacnew () {
         echo
     done
 
-    cd /etc
-    sudo git add .
-    sudo git diff --staged
+    if command -v "etckeeper" >/dev/null 2>&1
+    then
+        cd /etc
+        sudo git add .
+        sudo git diff --staged
+    else
+        echo "etckeeper not installed!"
+    fi
 }
