@@ -33,8 +33,9 @@ _gitc_options='"debug" "foo" "Translate to German" "Fix typo" "Initial commit" "
 complete -W "${_gitc_options}" gitc
 
 
-if [ ! -f /usr/share/bash-completion/completions/apt ]
+if [ ! -f /usr/share/bash-completion/completions/apt ] && command -v "apt" >/dev/null 2>&1
 then
+    echo "Enabling bash completion for apt"
     # Debian apt(8) completion                             -*- shell-script -*-
 
     _apt()
