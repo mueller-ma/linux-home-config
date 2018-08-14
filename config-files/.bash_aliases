@@ -56,6 +56,7 @@ fi
 
 # Show active internet connections (only servers)
 alias netstat-tulpen='sudo netstat -tulpen'
+alias mnetstat='sudo netstat -tulpen'
 
 # Remove orphaned packages
 if command -v "pacman" >/dev/null 2>&1
