@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-set -xv
 
 home_path=".linux-home-config"
 tempfile="${HOME}/${home_path}/temp"
