@@ -63,3 +63,5 @@ if command -v "pacman" >/dev/null 2>&1
 then
     alias pacman-autoremove='sudo pacman -Rns $(pacman -Qtdq)'
 fi
+
+alias linux-home-config-update='cd && .linux-home-config/start-update.sh && source .bashrc .bash_aliases .bash_functions && cd -'
