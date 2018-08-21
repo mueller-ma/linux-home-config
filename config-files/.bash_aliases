@@ -65,3 +65,6 @@ then
 fi
 
 alias linux-home-config-update='cd && .linux-home-config/start-update.sh && source .bashrc .bash_aliases .bash_functions && cd -'
+
+# Save bash history and load it from .bash_history
+alias sync-hist='history -a && history -c && history -r'
