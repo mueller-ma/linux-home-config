@@ -90,4 +90,5 @@ then
 fi
 
 rm $tempfile
-exit
+
+source .bashrc .bash_aliases .bash_functions
