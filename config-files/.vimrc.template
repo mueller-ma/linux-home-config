@@ -21,8 +21,12 @@ set background=dark " lite
 " Vim airline theme
 let g:airline_theme='ubaryd'
 
+" Map leader key to ","
+let mapleader = "," " lite
+let g:mapleader = "," " lite
+
 " Comment and uncomment with F3 (Shortcut for NERD Commenter)
-map <silent> <F3> <leader>c<space>
+map <silent> <F3> <leader>c<space> " lite
 
 " Toggle Paste
 map <F6> :set invpaste<CR> " lite
@@ -36,10 +40,6 @@ map <silent><F8> :tabn<CR> " lite
 
 " Show tabs
 noremap <F2> :<C-U>setlocal lcs=tab:>-,trail:-,eol:$ list! list? <CR> " lite
-
-" Map leader key to ","
-let mapleader = "," " lite
-let g:mapleader = "," " lite
 
 " Switch v and V
 noremap v V " lite
