@@ -7,3 +7,6 @@
 [submodule "config-files/.vim/bundle/openhab-vim"]
 	path = config-files/.vim/bundle/openhab-vim
 	url = https://github.com/cyberkov/openhab-vim
+[submodule "config-files/.vim/bundle/nerdcommenter"]
+	path = config-files/.vim/bundle/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter
