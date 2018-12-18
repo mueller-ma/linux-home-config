@@ -26,7 +26,42 @@ let mapleader = "," " lite
 let g:mapleader = "," " lite
 
 " Comment and uncomment with F3 (Shortcut for NERD Commenter)
-map <silent> <F3> <leader>c<space> " lite
+map <silent> <F3> <leader>c<space>
+map <silent> <F4> <leader>c<space>
+
+" 1 Sign
+autocmd BufNewFile,BufRead *vimrc*			map <silent> <F3> :norm I"<CR> " lite-only
+autocmd BufNewFile,BufRead *php*ini			map <silent> <F3> :norm I;<CR> " lite-only
+autocmd BufNewFile,BufRead *.zone			map <silent> <F3> :norm I;<CR> " lite-only
+" 2 Signs-only
+autocmd BufNewFile,BufRead *.cpp			map <silent> <F3> :norm I//<CR> " lite-only
+autocmd BufNewFile,BufRead *.c				map <silent> <F3> :norm I//<CR> " lite-only
+autocmd BufNewFile,BufRead *.items			map <silent> <F3> :norm I//<CR> " lite-only
+autocmd BufNewFile,BufRead *.rules			map <silent> <F3> :norm I//<CR> " lite-only
+autocmd BufNewFile,BufRead *.sitemap		map <silent> <F3> :norm I//<CR> " lite-only
+autocmd BufNewFile,BufRead *.persist		map <silent> <F3> :norm I//<CR> " lite-only
+autocmd BufNewFile,BufRead *.things			map <silent> <F3> :norm I//<CR> " lite-only
+autocmd BufNewFile,BufRead *.js				map <silent> <F3> :norm I//<CR> " lite-only
+autocmd BufNewFile,BufRead *.ino			map <silent> <F3> :norm I//<CR> " lite-only
+autocmd BufNewFile,BufRead *.php			map <silent> <F3> :norm I//<CR> " lite-only
+" Remove 2-only
+autocmd BufNewFile,BufRead *.cpp			map <silent> <F4> :norm ^2x<CR> " lite-only
+autocmd BufNewFile,BufRead *.c				map <silent> <F4> :norm ^2x<CR> " lite-only
+autocmd BufNewFile,BufRead *.items			map <silent> <F4> :norm ^2x<CR> " lite-only
+autocmd BufNewFile,BufRead *.rules			map <silent> <F4> :norm ^2x<CR> " lite-only
+autocmd BufNewFile,BufRead *.sitemap		map <silent> <F4> :norm ^2x<CR> " lite-only
+autocmd BufNewFile,BufRead *.persist		map <silent> <F4> :norm ^2x<CR> " lite-only
+autocmd BufNewFile,BufRead *.things			map <silent> <F4> :norm ^2x<CR> " lite-only
+autocmd BufNewFile,BufRead *.js				map <silent> <F4> :norm ^2x<CR> " lite-only
+autocmd BufNewFile,BufRead *.ino			map <silent> <F4> :norm ^2x<CR> " lite-only
+autocmd BufNewFile,BufRead *.php			map <silent> <F4> :norm ^2x<CR> " lite-only
+" Special-only
+autocmd BufNewFile,BufRead *.xml			map <silent> <F3> vat<esc>a--><esc>'<i<!--<esc>'>$ " lite-only
+autocmd BufNewFile,BufRead *.xml			map <silent> <F4> 0vat<esc>C><esc>'<4x<esc> " lite-only
+autocmd BufNewFile,BufRead *.htm*			map <silent> <F3> :norm I<!--<esc>A--><esc> " lite-only
+autocmd BufNewFile,BufRead *.htm*			map <silent> <F4> :norm ^4x<esc>$xxx<esc> " lite-only
+autocmd BufNewFile,BufRead *.css			map <silent> <F3> :norm I/*<esc>A*/<esc> " lite-only
+autocmd BufNewFile,BufRead *.css			map <silent> <F4> :norm ^2x<esc>$xx " lite-only
 
 " Toggle Paste
 map <F6> :set invpaste<CR> " lite
