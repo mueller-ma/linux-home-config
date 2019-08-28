@@ -76,10 +76,6 @@ map <silent><F8> :tabn<CR> " lite
 " Show tabs
 noremap <F2> :<C-U>setlocal lcs=tab:>-,trail:-,eol:$ list! list? <CR> " lite
 
-" Switch v and V
-noremap v V " lite
-noremap V v " lite
-
 " Ignore case of Q and W in command mode
 command Q q " lite
 command W w " lite
