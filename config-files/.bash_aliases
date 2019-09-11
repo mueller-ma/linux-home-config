@@ -68,3 +68,6 @@ alias linux-home-config-update='cd && .linux-home-config/start-update.sh && cd -
 
 # Save bash history and load it from .bash_history
 alias sync-hist='history -a && history -c && history -r'
+
+# Disable bash history
+alias no-hist='unset HISTFILE'
