@@ -146,6 +146,11 @@ fi
 
 unset timeout
 
-
 # Rvim as root editor
 export SUDO_EDITOR=rvim
+
+# Source keychain config if present
+if [ -f ~/.keychain/$(uname -n)-sh ]
+then
+    . ~/.keychain/$(uname -n)-sh
+fi
